@@ -28,3 +28,17 @@ Thumbs.db
 
 # Vercel
 .vercel
+
+# Lock files (LibreOffice/Office)
+.~lock.*
+~$*
+
+# Business documents (not for version control)
+*.xlsx
+*.pdf
+*.pptx
+*_BRIEF.md
+*_OUTLINE*.md
+*_REGISTER*.md
+*_MATRIX*.md
+*_BUDGET*.md

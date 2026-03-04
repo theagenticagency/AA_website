@@ -49,3 +49,13 @@ body {
   background: var(--black);
   border-radius: 8px;
 }
+
+/* Animation keyframes */
+@keyframes scan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: 0; }
+}
