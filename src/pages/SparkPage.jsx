@@ -37,6 +37,15 @@ const SparkPage = () => {
         }
       );
 
+      // Outcomes grid animation
+      gsap.fromTo('.outcome-card',
+        { y: 40, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power3.out',
+          scrollTrigger: { trigger: '#outcomes-section', start: 'top 70%' }
+        }
+      );
+
       // Protocol Stacking - blur starts when next card reaches center (natural eye position)
       const cards = gsap.utils.toArray('.protocol-card');
       cards.forEach((card, i) => {
@@ -136,6 +145,60 @@ const SparkPage = () => {
             <DiagnosticShuffler />
             <TelemetryTypewriter />
             <CursorScheduler />
+          </div>
+        </div>
+      </section>
+
+      {/* C2. WHAT YOU'LL WALK AWAY WITH */}
+      <section id="outcomes-section" className="py-24 px-6 md:px-16 bg-black text-[#E6E6E1]">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-4">What You'll Walk Away With</h2>
+            <p className="text-xl font-medium text-[#E6E6E1]/70 max-w-2xl">Concrete outcomes, not just theory. Here's what your team gains.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                num: "01",
+                title: "A Repeatable Methodology",
+                desc: "Move from ad-hoc prompting to structured agentic engineering you can apply to any project."
+              },
+              {
+                num: "02",
+                title: "Tool Proficiency",
+                desc: "Hands-on fluency with Claude Code and Cursor — configured and operational from day one."
+              },
+              {
+                num: "03",
+                title: "The Three Chapters Framework",
+                desc: "Know which agentic approach fits greenfield, extension, or stewardship work."
+              },
+              {
+                num: "04",
+                title: "Real Code Experience",
+                desc: "Frontend and backend challenges you've actually solved — not slides you've watched."
+              },
+              {
+                num: "05",
+                title: "Your 'In The Wild' Project",
+                desc: "A defined project to apply immediately at work, with community support to ship it."
+              },
+              {
+                num: "06",
+                title: "Ongoing Community Access",
+                desc: "Shooting Star alumni network plus a 6-week reunion to demo real results."
+              }
+            ].map((item) => (
+              <div key={item.num} className="outcome-card bg-[#111] border border-white/10 rounded-xl p-6 hover:border-white/30 transition-colors">
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="font-mono text-2xl font-bold text-[#E6E6E1]/30">{item.num}</span>
+                  <div className="h-px flex-1 bg-white/10"></div>
+                </div>
+                <h3 className="text-xl font-bold uppercase tracking-tight mb-3">{item.title}</h3>
+                <p className="text-[#E6E6E1]/70 font-medium text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
