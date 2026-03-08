@@ -46,6 +46,15 @@ const SparkPage = () => {
         }
       );
 
+      // Testimonials animation
+      gsap.fromTo('.testimonial-card',
+        { y: 40, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 0.6, stagger: 0.08, ease: 'power3.out',
+          scrollTrigger: { trigger: '.testimonial-card', start: 'top 80%' }
+        }
+      );
+
       // Protocol Stacking - blur starts when next card reaches center (natural eye position)
       const cards = gsap.utils.toArray('.protocol-card');
       cards.forEach((card, i) => {
@@ -285,6 +294,66 @@ const SparkPage = () => {
         ]}
         alternateCTA={{ text: "Let's talk", to: "/about" }}
       />
+
+      {/* E2. WHAT ENGINEERS SAY */}
+      <section className="py-24 px-6 md:px-16 bg-black text-[#E6E6E1]">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-4">What Engineers Say</h2>
+            <p className="text-xl font-medium text-[#E6E6E1]/70 max-w-2xl">From skeptical to systematic in two days.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                quote: "I went from using Copilot for autocomplete to actually engineering with AI. The Three Chapters framework changed how I approach every project now.",
+                name: "Senior Backend Engineer",
+                company: "Fintech Scale-up"
+              },
+              {
+                quote: "The hands-on format is what made it click. By the end of day one, I'd already shipped a feature I'd been procrastinating on for weeks.",
+                name: "Tech Lead",
+                company: "E-commerce Platform"
+              },
+              {
+                quote: "Finally, a workshop that treats AI as a serious engineering tool, not a toy. The methodology for catching AI mistakes alone was worth it.",
+                name: "Staff Engineer",
+                company: "Enterprise SaaS"
+              },
+              {
+                quote: "Our team came back aligned on vocabulary and approach. That shared understanding accelerated our AI adoption more than any tool could.",
+                name: "Engineering Manager",
+                company: "Healthcare Tech"
+              },
+              {
+                quote: "The 'in the wild' project kept me accountable. Six weeks later, I demoed a real feature built with the methodology. That's rare for training.",
+                name: "Full-Stack Developer",
+                company: "Media Company"
+              },
+              {
+                quote: "I was skeptical about another AI workshop. But this wasn't about prompts — it was about systematic engineering. Exactly what we needed.",
+                name: "Principal Architect",
+                company: "Logistics Platform"
+              }
+            ].map((testimonial, i) => (
+              <div key={i} className="testimonial-card bg-[#111] border border-white/10 rounded-xl p-8 flex flex-col">
+                <div className="flex-1">
+                  <svg className="w-8 h-8 text-[#E6E6E1]/20 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <p className="text-[#E6E6E1]/90 font-medium leading-relaxed mb-6">
+                    "{testimonial.quote}"
+                  </p>
+                </div>
+                <div className="border-t border-white/10 pt-4">
+                  <p className="font-bold text-sm">{testimonial.name}</p>
+                  <p className="text-[#E6E6E1]/50 text-sm">{testimonial.company}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* F. PRICING */}
       <section className="py-24 bg-[#E6E6E1] px-6 md:px-16">
