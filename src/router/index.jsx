@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
+import { ErrorPage } from '../components/common';
 
 // Lazy load pages for better performance
 const LandingPage = React.lazy(() => import('../pages/LandingPage'));
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
