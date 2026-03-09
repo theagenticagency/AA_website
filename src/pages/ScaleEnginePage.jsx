@@ -113,7 +113,7 @@ const ScaleEnginePage = () => {
               Schedule a discovery conversation <ArrowUpRight size={20} />
             </MagneticButton>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-black/60 border-l-2 border-black/20 pl-4 py-1">
-              Prerequisite: The Catalyst<br/>From DKK 50,000/month
+              Prerequisite: The Catalyst<br/>Custom scoped
             </span>
           </div>
         </div>
@@ -313,7 +313,7 @@ const ScaleEnginePage = () => {
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-4">Ready to scale?</h2>
             <p className="text-xl text-black/80 font-medium mb-8">
               The Scale Engine is a strategic advisory partnership.<br/>
-              Retainers typically start at DKK 50,000/month, scoped to your organization's size and rollout ambitions.
+              Pricing is scoped to your organization's size, rollout ambitions, and timeline.
             </p>
             <MagneticButton
               href="mailto:hello@theagenticagency.com?subject=Scale%20Engine%20Inquiry"

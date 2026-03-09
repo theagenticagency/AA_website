@@ -120,7 +120,7 @@ const CatalystPage = () => {
               Book a discovery call <ArrowUpRight size={20} />
             </MagneticButton>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-black/60 border-l-2 border-black/20 pl-4 py-1">
-              Prerequisite: The Spark<br/>From DKK 395,000
+              Prerequisite: The Spark<br/>Custom scoped
             </span>
           </div>
         </div>
@@ -352,7 +352,7 @@ const CatalystPage = () => {
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-4">Ready to move faster with agentic engineering?</h2>
             <p className="text-xl text-black/70 font-medium mb-8">
               The Catalyst is a 12-week embedded transformation program.<br/>
-              Engagements typically start at DKK 395,000, scoped to your team's size and needs.
+              Pricing is scoped to your team's size and specific needs.
             </p>
             <MagneticButton
               href="mailto:hello@theagenticagency.com?subject=Catalyst%20Program%20Inquiry"
