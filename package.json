@@ -6,7 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "./scripts/deploy.sh",
+    "deploy:start": "./scripts/deploy.sh start",
+    "deploy:stage": "./scripts/deploy.sh stage",
+    "deploy:release": "./scripts/deploy.sh release",
+    "deploy:status": "./scripts/deploy.sh status",
+    "setup-hooks": "./scripts/setup-hooks.sh"
   },
   "dependencies": {
     "gsap": "^3.12.5",
