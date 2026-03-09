@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MagneticButton } from '../common';
+import { WaitlistForm } from '../common';
 
 const Footer = () => {
   return (
@@ -9,23 +9,21 @@ const Footer = () => {
         <h2 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-6 text-[#E6E6E1]">
           Ready to move beyond vibe coding?
         </h2>
-        <p className="text-xl font-medium mb-12 max-w-2xl mx-auto">
-          Scheduled The Spark sessions are fully booked - sign up for our waitlist.
+        <p className="text-xl font-medium mb-8 max-w-2xl mx-auto">
+          Scheduled The Spark sessions are filling up. Join the waitlist to secure your spot.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-          <MagneticButton
-            href="mailto:hello@theagenticagency.com?subject=Spark%20Workshop%20Inquiry"
-            className="bg-[#E6E6E1] text-black px-10 py-5 text-lg font-bold"
-          >
-            Book a workshop
-          </MagneticButton>
-          <Link
-            to="/about"
-            className="font-bold text-[#E6E6E1] hover:underline underline-offset-4"
-          >
-            Questions? Talk to us →
-          </Link>
+
+        {/* Waitlist Form */}
+        <div className="max-w-xl mx-auto mb-8">
+          <WaitlistForm variant="dark" />
         </div>
+
+        <Link
+          to="/about"
+          className="font-bold text-[#E6E6E1]/70 hover:text-[#E6E6E1] hover:underline underline-offset-4 transition-colors"
+        >
+          Questions? Talk to us →
+        </Link>
       </div>
 
       <div className="max-w-[1400px] mx-auto">
