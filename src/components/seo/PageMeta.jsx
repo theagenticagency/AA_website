@@ -12,10 +12,17 @@ const PageMeta = ({
   const fullUrl = `${siteUrl}${path}`;
   const siteName = 'Agentic Agency';
 
+  // Block indexing on staging
+  const isStaging = typeof window !== 'undefined' &&
+    window.location.hostname.includes('staging');
+
   return (
     <Helmet>
       <title>{title} | {siteName}</title>
       <meta name="description" content={description} />
+
+      {/* Block staging from search engines */}
+      {isStaging && <meta name="robots" content="noindex, nofollow" />}
 
       {/* Open Graph */}
       <meta property="og:type" content={type} />
