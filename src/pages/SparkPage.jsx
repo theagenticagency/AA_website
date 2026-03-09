@@ -130,7 +130,7 @@ const SparkPage = () => {
         </div>
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           <p className="phil-word text-xl md:text-3xl text-[#E6E6E1]/80 mb-8 font-medium">
-            Ad-hoc AI prompting gets you started. It won't get you to production.
+            Vibe coding gets you started. It won't get you to production.
           </p>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight uppercase">
             <span className="phil-word inline-block mr-3">We</span>

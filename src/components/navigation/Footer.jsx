@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="bg-black text-[#E6E6E1]/60 pt-24 pb-12 px-6 md:px-16 rounded-t-[4rem]">
       <div className="max-w-[1400px] mx-auto text-center mb-24">
         <h2 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-6 text-[#E6E6E1]">
-          Ready to move beyond ad-hoc AI usage?
+          Ready to move beyond vibe coding?
         </h2>
         <p className="text-xl font-medium mb-12 max-w-2xl mx-auto">
           The Spark is running now. Seats are limited.
