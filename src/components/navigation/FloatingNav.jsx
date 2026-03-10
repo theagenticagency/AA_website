@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { MagneticButton } from '../common';
+import { useInquiry } from '../../context/InquiryContext';
 
 const FloatingNav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const { openInquiry } = useInquiry();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 100);
@@ -31,17 +33,22 @@ const FloatingNav = () => {
   const getCTA = () => {
     switch (location.pathname) {
       case '/the-catalyst':
-        return { label: 'Book a discovery call', href: 'mailto:catalyst@agenticagency.dev?subject=Catalyst%20Program%20Inquiry' };
+        return { label: 'Book a discovery call', product: 'catalyst' };
       case '/the-scale-engine':
-        return { label: 'Schedule a conversation', href: 'mailto:scaleengine@agenticagency.dev?subject=Scale%20Engine%20Inquiry' };
+        return { label: 'Schedule a conversation', product: 'scale-engine' };
       case '/about':
-        return { label: 'Get in touch', href: 'mailto:about@agenticagency.dev?subject=Let\'s%20Talk' };
+        return { label: 'Get in touch', product: 'general' };
       default:
-        return { label: 'Book a workshop', href: 'mailto:spark@agenticagency.dev?subject=Spark%20Workshop%20Inquiry' };
+        return { label: 'Book a workshop', product: 'spark' };
     }
   };
 
   const cta = getCTA();
+
+  const handleCTAClick = () => {
+    openInquiry(cta.product, cta.label);
+    setMenuOpen(false);
+  };
 
   return (
     <div className="fixed top-6 left-0 w-full z-50 flex justify-center px-4 hover:-translate-y-px transition-transform duration-300">
@@ -64,7 +71,7 @@ const FloatingNav = () => {
         </div>
 
         <MagneticButton
-          href={cta.href}
+          onClick={handleCTAClick}
           className="hidden md:flex bg-black text-[#E6E6E1] px-5 py-2.5 text-xs font-bold uppercase tracking-wide"
         >
           {cta.label}
@@ -96,7 +103,7 @@ const FloatingNav = () => {
               </Link>
             ))}
             <MagneticButton
-              href={cta.href}
+              onClick={handleCTAClick}
               className="bg-black text-[#E6E6E1] px-6 py-3 text-sm font-bold uppercase tracking-wide mt-4"
             >
               {cta.label}

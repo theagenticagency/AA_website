@@ -4,11 +4,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, Mail } from 'lucide-react';
 import { MagneticButton } from '../components/common';
 import { PageMeta, OrganizationSchema, FounderSchema, BreadcrumbSchema } from '../components/seo';
+import { useInquiry } from '../context/InquiryContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutPage = () => {
   const pageRef = useRef(null);
+  const { openInquiry } = useInquiry();
 
   const founders = [
     {
@@ -277,16 +279,16 @@ const AboutPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <MagneticButton
-                href="mailto:about@agenticagency.dev?subject=Let's%20Talk"
+                onClick={() => openInquiry('general', 'Book a conversation')}
                 className="bg-black text-[#E6E6E1] px-10 py-5 text-lg font-bold"
               >
                 Book a conversation <ArrowUpRight size={20} />
               </MagneticButton>
               <MagneticButton
-                href="mailto:about@agenticagency.dev"
+                onClick={() => openInquiry('general', 'Get in touch')}
                 className="bg-white text-black px-10 py-5 text-lg font-bold border-2 border-black"
               >
-                <Mail size={20} /> about@agenticagency.dev
+                <Mail size={20} /> Get in touch
               </MagneticButton>
             </div>
           </div>

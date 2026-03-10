@@ -5,6 +5,7 @@ import { ArrowUpRight, Calendar, MessageSquare, FileText, Target, Clock, CheckCi
 import { MagneticButton } from '../components/common';
 import { ProductLadderSection, TargetAudienceSection, FAQSection } from '../components/sections';
 import { PageMeta, CatalystCourseSchema, FAQSchema, BreadcrumbSchema } from '../components/seo';
+import { useInquiry } from '../context/InquiryContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,6 +13,7 @@ const CatalystPage = () => {
   const pageRef = useRef(null);
   const timelineRef = useRef(null);
   const [activePhase, setActivePhase] = useState(0);
+  const { openInquiry } = useInquiry();
 
   const catalystFAQs = [
     { q: "Do we need to complete The Spark first?", a: "Yes. The Spark teaches the methodology; The Catalyst embeds it. Without shared vocabulary and baseline skills, the 12 weeks are less effective." },
@@ -114,7 +116,7 @@ const CatalystPage = () => {
           </p>
           <div className="hero-anim flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <MagneticButton
-              href="mailto:catalyst@agenticagency.dev?subject=Catalyst%20Program%20Inquiry"
+              onClick={() => openInquiry('catalyst', 'Book a discovery call')}
               className="bg-black text-[#E6E6E1] px-8 py-5 text-lg font-bold flex items-center gap-2 hover:bg-black/90"
             >
               Book a discovery call <ArrowUpRight size={20} />
@@ -355,7 +357,7 @@ const CatalystPage = () => {
               Pricing is scoped to your team's size and specific needs.
             </p>
             <MagneticButton
-              href="mailto:catalyst@agenticagency.dev?subject=Catalyst%20Program%20Inquiry"
+              onClick={() => openInquiry('catalyst', 'Book a discovery call')}
               className="bg-black text-[#E6E6E1] px-10 py-5 text-xl font-bold mx-auto"
             >
               Book a discovery call <ArrowUpRight size={22} />

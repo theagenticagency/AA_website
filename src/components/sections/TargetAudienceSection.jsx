@@ -49,6 +49,7 @@ const TargetAudienceSection = ({
               <MagneticButton
                 {...(alternateCTA.to ? { to: alternateCTA.to } : {})}
                 {...(alternateCTA.href ? { href: alternateCTA.href } : {})}
+                {...(alternateCTA.onClick ? { onClick: alternateCTA.onClick } : {})}
                 className="bg-[#E6E6E1] text-black px-8 py-4 text-base font-bold"
               >
                 {alternateCTA.text} <ArrowUpRight size={18} />

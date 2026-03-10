@@ -5,11 +5,13 @@ import { ArrowUpRight, Code2, GitBranch, ShieldAlert, CheckSquare, XSquare, Chec
 import { MagneticButton } from '../components/common';
 import { ProductLadderSection, TargetAudienceSection, FAQSection } from '../components/sections';
 import { PageMeta, SparkCourseSchema, FAQSchema, BreadcrumbSchema } from '../components/seo';
+import { useInquiry } from '../context/InquiryContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const SparkPage = () => {
   const pageRef = useRef(null);
+  const { openInquiry } = useInquiry();
 
   const sparkFAQs = [
     { q: "What's the difference between open and closed?", a: "Open workshops include 3-4 companies learning together (12 participants max). Closed workshops are exclusively for your organization. Same curriculum, different dynamics." },
@@ -111,7 +113,7 @@ const SparkPage = () => {
           </p>
           <div className="hero-anim flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <MagneticButton
-              href="mailto:spark@agenticagency.dev?subject=Spark%20Workshop%20Inquiry"
+              onClick={() => openInquiry('spark', 'Book a workshop')}
               className="bg-black text-[#E6E6E1] px-8 py-5 text-lg font-bold flex items-center gap-2 hover:bg-black/90"
             >
               Book a workshop <ArrowUpRight size={20} />
@@ -295,7 +297,7 @@ const SparkPage = () => {
           "Earlier in your development career — we can point you to foundational resources.",
           "Looking for certification — we focus on capability, but happy to discuss your goals."
         ]}
-        alternateCTA={{ text: "Let's talk", href: "mailto:spark@agenticagency.dev?subject=Workshop%20Inquiry" }}
+        alternateCTA={{ text: "Let's talk", onClick: () => openInquiry('spark', "Let's talk") }}
       />
 
       {/* E2. WHAT ENGINEERS SAY */}
@@ -398,7 +400,7 @@ const SparkPage = () => {
               </p>
 
               <MagneticButton
-                href="mailto:spark@agenticagency.dev?subject=Open%20Workshop%20—%20Reserve%20Seats"
+                onClick={() => openInquiry('spark', 'Reserve seats - Open Workshop')}
                 className="w-full bg-black text-[#E6E6E1] px-8 py-4 text-lg font-bold justify-center"
               >
                 Reserve seats <ArrowUpRight size={18} />
@@ -436,7 +438,7 @@ const SparkPage = () => {
               </p>
 
               <MagneticButton
-                href="mailto:spark@agenticagency.dev?subject=Closed%20Workshop%20Inquiry"
+                onClick={() => openInquiry('spark', 'Book closed session')}
                 className="w-full bg-[#E6E6E1] text-black px-8 py-4 text-lg font-bold justify-center"
               >
                 Book closed session <ArrowUpRight size={18} />
