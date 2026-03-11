@@ -16,6 +16,7 @@ const InquiryModal = ({ isOpen, onClose, product = 'general', ctaLabel = '' }) =
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     company: '',
     product: product,
     message: '',
@@ -71,6 +72,7 @@ const InquiryModal = ({ isOpen, onClose, product = 'general', ctaLabel = '' }) =
       fields: [
         { name: 'email', value: formData.email },
         { name: 'firstname', value: formData.name },
+        { name: 'mobilephone', value: formData.phone },
         { name: 'company', value: formData.company },
         { name: 'product_interest', value: productLabel },
         { name: 'message', value: formData.message },
@@ -200,6 +202,19 @@ const InquiryModal = ({ isOpen, onClose, product = 'general', ctaLabel = '' }) =
                   disabled={status === 'loading'}
                   className="w-full px-4 py-3 rounded-xl border-2 border-black/20 bg-white focus:border-black outline-none transition-colors disabled:opacity-50"
                   placeholder="you@company.com"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold uppercase tracking-wide mb-2">Mobile Phone</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  disabled={status === 'loading'}
+                  className="w-full px-4 py-3 rounded-xl border-2 border-black/20 bg-white focus:border-black outline-none transition-colors disabled:opacity-50"
+                  placeholder="+45 12 34 56 78 (optional)"
                 />
               </div>
 
