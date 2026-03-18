@@ -222,14 +222,8 @@ const MethodPage = () => {
             </p>
           </div>
 
-          {/* The Hierarchy */}
-          <div className="border border-white/20 rounded-lg overflow-hidden mb-12">
-            <div className="grid grid-cols-4 bg-white/10 p-4 font-mono text-xs uppercase tracking-widest text-white/50">
-              <div><span className="normal-case">SAFe</span> Concept</div>
-              <div>ADAPT</div>
-              <div>Time Shift</div>
-              <div>Key Insight</div>
-            </div>
+          {/* The Hierarchy - Redesigned for readability */}
+          <div className="space-y-3 mb-16">
             {[
               { safe: "Program Increment", adapt: "Increment", time: "8–12 wks → 30m–15hr", insight: "Scope-boxed, not time-boxed" },
               { safe: "Sprint", adapt: "Iteration", time: "2 wks → 30m–4hr", insight: "Graph-partitioned planning" },
@@ -237,18 +231,30 @@ const MethodPage = () => {
               { safe: "Task", adapt: "Task", time: "Hrs–Days → 5–30m", insight: "Enforced test-gate (not aspirational)" },
               { safe: "Inspect & Adapt", adapt: "I&A Cycle", time: "Once per PI → Every Iteration", insight: "12-step automated verification" }
             ].map((row, i) => (
-              <div key={i} className="grid grid-cols-4 p-4 border-t border-white/10 text-sm">
-                <div className="text-white/40">{row.safe}</div>
-                <div className="text-white font-bold">{row.adapt}</div>
-                <div className="text-white/60 font-mono text-xs">{row.time}</div>
-                <div className="text-white/50">{row.insight}</div>
+              <div key={i} className="bg-white/5 border border-white/10 rounded-lg p-5 hover:bg-white/10 transition-colors">
+                <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6">
+                  <div className="flex items-center gap-3 md:w-64">
+                    <span className="text-white/30 text-sm">{row.safe}</span>
+                    <span className="text-white/30">→</span>
+                    <span className="text-white font-bold text-lg">{row.adapt}</span>
+                  </div>
+                  <div className="font-mono text-sm text-white/70 bg-white/10 px-3 py-1 rounded w-max">
+                    {row.time}
+                  </div>
+                  <div className="text-white/50 text-sm flex-1">
+                    {row.insight}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
 
-          <p className="text-white/40 text-sm leading-relaxed mb-8">
-            The compression is not about working faster. It's about working differently — replacing coordination ceremonies with persistent artifacts that give agents the context they need to execute autonomously.
-          </p>
+          {/* Key Message - Emphasized */}
+          <div className="border-l-4 border-white/50 pl-6 py-4 bg-white/5 rounded-r-lg">
+            <p className="text-xl text-white/90 font-medium leading-relaxed">
+              The compression is not about working faster. It's about working <em className="text-white not-italic font-bold">differently</em> — replacing coordination ceremonies with persistent artifacts that give agents the context they need to execute autonomously.
+            </p>
+          </div>
 
           {/* Connection to Harness and Tooling */}
           <div className="border-t border-white/20 pt-8 mt-8">
