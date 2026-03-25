@@ -1,0 +1,61 @@
+# Standard crawlers
+User-agent: *
+Allow: /
+Disallow: /STARK-procurement
+Disallow: /STARK-procurement/
+Disallow: /STARK-Procurement
+Disallow: /STARK-procurement-auth
+
+# Google
+User-agent: Googlebot
+Disallow: /STARK-procurement
+Disallow: /STARK-procurement/
+
+# Bing
+User-agent: Bingbot
+Disallow: /STARK-procurement
+Disallow: /STARK-procurement/
+
+# OpenAI
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+# Anthropic
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# Common Crawl (used for AI training)
+User-agent: CCBot
+Disallow: /
+
+# Google AI
+User-agent: Google-Extended
+Disallow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Disallow: /
+
+# Meta AI
+User-agent: FacebookBot
+Disallow: /STARK-procurement
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# Bytedance
+User-agent: Bytespider
+Disallow: /
+
+# Other AI scrapers
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /STARK-procurement
