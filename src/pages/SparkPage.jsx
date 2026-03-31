@@ -160,12 +160,9 @@ const SparkPage = () => {
             <div className="space-y-4">
               {/* The Why */}
               <div className="bg-white rounded-xl p-6 border-2 border-black">
-                <div className="flex justify-between items-start mb-3">
-                  <div>
-                    <div className="font-mono text-xs tracking-wider uppercase text-black/50">Session 1</div>
-                    <h3 className="text-xl font-bold uppercase tracking-tight">The Why</h3>
-                  </div>
-                  <span className="font-mono text-xs text-black/50">15-20 min</span>
+                <div className="mb-3">
+                  <div className="font-mono text-xs tracking-wider uppercase text-black/50">Session 1</div>
+                  <h3 className="text-xl font-bold uppercase tracking-tight">The Why</h3>
                 </div>
                 <p className="text-black/70 font-medium text-sm mb-3">Strategy, ambition, customer promises. What success looks like.</p>
                 <div className="text-xs font-medium text-black/50 uppercase tracking-wide">With: Sponsors & Leadership</div>
@@ -173,12 +170,9 @@ const SparkPage = () => {
 
               {/* The What */}
               <div className="bg-white rounded-xl p-6 border-2 border-black">
-                <div className="flex justify-between items-start mb-3">
-                  <div>
-                    <div className="font-mono text-xs tracking-wider uppercase text-black/50">Session 2</div>
-                    <h3 className="text-xl font-bold uppercase tracking-tight">The What</h3>
-                  </div>
-                  <span className="font-mono text-xs text-black/50">25-30 min</span>
+                <div className="mb-3">
+                  <div className="font-mono text-xs tracking-wider uppercase text-black/50">Session 2</div>
+                  <h3 className="text-xl font-bold uppercase tracking-tight">The What</h3>
                 </div>
                 <p className="text-black/70 font-medium text-sm mb-3">Operational reality, process truth. How the work actually happens today.</p>
                 <div className="text-xs font-medium text-black/50 uppercase tracking-wide">With: Domain Experts</div>
@@ -186,12 +180,9 @@ const SparkPage = () => {
 
               {/* The How */}
               <div className="bg-white rounded-xl p-6 border-2 border-black">
-                <div className="flex justify-between items-start mb-3">
-                  <div>
-                    <div className="font-mono text-xs tracking-wider uppercase text-black/50">Session 3</div>
-                    <h3 className="text-xl font-bold uppercase tracking-tight">The How</h3>
-                  </div>
-                  <span className="font-mono text-xs text-black/50">30-45 min</span>
+                <div className="mb-3">
+                  <div className="font-mono text-xs tracking-wider uppercase text-black/50">Session 3</div>
+                  <h3 className="text-xl font-bold uppercase tracking-tight">The How</h3>
                 </div>
                 <p className="text-black/70 font-medium text-sm mb-3">Technical depth, system constraints. What's possible and what's not.</p>
                 <div className="text-xs font-medium text-black/50 uppercase tracking-wide">With: Architects & Engineers</div>
@@ -201,28 +192,66 @@ const SparkPage = () => {
         </div>
       </section>
 
+      {/* DEVELOPMENT SCOPE */}
+      <section className="py-24 px-6 md:px-16 bg-black text-[#E6E6E1]">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="font-mono text-xs uppercase tracking-wider text-[#E6E6E1]/40 mb-4">The Main Event</div>
+              <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-6">
+                Your Development Scope
+              </h2>
+              <p className="text-xl text-[#E6E6E1]/80 font-medium leading-relaxed mb-6">
+                The Spark ends with something concrete: a fully scoped development engagement. Not a vague proposal — an executable plan.
+              </p>
+              <p className="text-lg text-[#E6E6E1]/60 font-medium leading-relaxed">
+                Features prioritised. Architecture decided. Timeline fixed. Price locked. You know exactly what you're getting before The Catalyst begins.
+              </p>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-xl p-8">
+              <h3 className="font-bold text-xl uppercase tracking-tight mb-6">Your Scope Document</h3>
+              <ul className="space-y-4">
+                {[
+                  "Feature breakdown with acceptance criteria",
+                  "Technical architecture & stack decisions",
+                  "Screen inventory with complexity ratings",
+                  "Integration map & API contracts",
+                  "Fixed timeline with milestones",
+                  "Fixed price — no surprises"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-[#E6E6E1]/80 font-medium">
+                    <Check size={16} className="text-green-400 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* THE THREE PHASES */}
       <section id="phases-section" className="py-24 px-6 md:px-16 bg-white">
         <div className="max-w-[1400px] mx-auto">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-4">Three Phases</h2>
-            <p className="text-xl font-medium text-black/70 max-w-2xl">Parallel workstreams that converge into delivery readiness.</p>
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-4">How We Get There</h2>
+            <p className="text-xl font-medium text-black/70 max-w-2xl">Three phases that converge into your Development Scope.</p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-6">
             {/* Phase 1 */}
             <div className="phase-card bg-[#E6E6E1] rounded-xl p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <div className="font-mono text-xs tracking-wider uppercase text-black/50 mb-2">Phase 1</div>
-              <h3 className="text-2xl font-bold uppercase tracking-tight mb-4 text-black">Assessment</h3>
+              <h3 className="text-2xl font-bold uppercase tracking-tight mb-4 text-black">Discovery</h3>
               <p className="text-black/70 font-medium mb-6">
-                We audit your current state: infrastructure, security posture, team structure, and existing workflows.
+                We map what you need: features, workflows, users, integrations. The blueprint for your software.
               </p>
               <ul className="space-y-3">
                 {[
-                  "Infrastructure audit",
-                  "Security & compliance review",
-                  "Team capability mapping",
-                  "Tooling inventory"
+                  "Feature prioritisation",
+                  "User journey mapping",
+                  "Integration inventory",
+                  "Complexity assessment"
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm font-medium text-black/80">
                     <Check size={16} className="text-black" />
@@ -235,16 +264,16 @@ const SparkPage = () => {
             {/* Phase 2 */}
             <div className="phase-card bg-black text-[#E6E6E1] rounded-xl p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)]">
               <div className="font-mono text-xs tracking-wider uppercase text-[#E6E6E1]/50 mb-2">Phase 2</div>
-              <h3 className="text-2xl font-bold uppercase tracking-tight mb-4">Alignment</h3>
+              <h3 className="text-2xl font-bold uppercase tracking-tight mb-4">Architecture</h3>
               <p className="text-[#E6E6E1]/70 font-medium mb-6">
-                We establish shared protocols: communication channels, approval workflows, escalation paths.
+                We design how it's built: stack, structure, security. Technical decisions locked before code begins.
               </p>
               <ul className="space-y-3">
                 {[
-                  "Stakeholder identification",
-                  "Communication protocols",
-                  "Approval workflows",
-                  "Escalation paths"
+                  "Technology selection",
+                  "System architecture",
+                  "Security framework",
+                  "Infrastructure plan"
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm font-medium text-[#E6E6E1]/80">
                     <Check size={16} className="text-[#E6E6E1]" />
@@ -257,16 +286,16 @@ const SparkPage = () => {
             {/* Phase 3 */}
             <div className="phase-card bg-[#E6E6E1] rounded-xl p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <div className="font-mono text-xs tracking-wider uppercase text-black/50 mb-2">Phase 3</div>
-              <h3 className="text-2xl font-bold uppercase tracking-tight mb-4 text-black">Preparation</h3>
+              <h3 className="text-2xl font-bold uppercase tracking-tight mb-4 text-black">Scoping</h3>
               <p className="text-black/70 font-medium mb-6">
-                We prepare the delivery environment: access provisioning, pipeline validation, documentation.
+                We lock the scope: timeline, milestones, deliverables. Fixed price. No ambiguity.
               </p>
               <ul className="space-y-3">
                 {[
-                  "Environment provisioning",
-                  "Access & credentials",
-                  "Pipeline validation",
-                  "Handoff documentation"
+                  "Timeline & milestones",
+                  "Acceptance criteria",
+                  "Fixed pricing",
+                  "Catalyst kickoff plan"
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm font-medium text-black/80">
                     <Check size={16} className="text-black" />
@@ -284,17 +313,17 @@ const SparkPage = () => {
         <div className="max-w-[1400px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">What you receive</h2>
+              <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">What You Leave With</h2>
               <p className="text-xl font-medium text-black/70 mb-8">
-                The Spark concludes with a Readiness Report and formal handoff to The Catalyst delivery phase.
+                Not just alignment — a complete Development Scope ready for execution.
               </p>
 
               <div className="space-y-4">
                 {[
-                  { icon: FileCheck, title: "Readiness Report", desc: "Complete assessment of infrastructure, governance, and team readiness." },
-                  { icon: Shield, title: "Governance Framework", desc: "Documented approval workflows, security protocols, compliance requirements." },
-                  { icon: Users, title: "Communication Charter", desc: "Stakeholder map, escalation paths, meeting cadences, reporting structure." },
-                  { icon: Zap, title: "Catalyst Kickoff Brief", desc: "Scoped first engagement, timeline, success criteria, team assignments." }
+                  { icon: Layers, title: "Development Scope", desc: "Feature breakdown, architecture, timeline, fixed price. The complete plan for The Catalyst." },
+                  { icon: FileCheck, title: "Screen Specifications", desc: "Every screen inventoried with complexity ratings and acceptance criteria." },
+                  { icon: Shield, title: "Technical Architecture", desc: "Stack decisions, integration contracts, security framework, infrastructure plan." },
+                  { icon: Zap, title: "Catalyst Kickoff", desc: "Day-one ready. No ramp-up. Development starts immediately." }
                 ].map((item, i) => (
                   <div key={i} className="output-item flex items-start gap-4 p-4 bg-[#E6E6E1]/30 rounded-lg">
                     <item.icon size={24} className="text-black mt-1 flex-shrink-0" />
@@ -308,21 +337,21 @@ const SparkPage = () => {
             </div>
 
             <div className="bg-black text-[#E6E6E1] rounded-xl p-10">
-              <div className="font-mono text-xs uppercase tracking-wider text-[#E6E6E1]/50 mb-4">After The Spark</div>
-              <h3 className="text-3xl font-bold uppercase tracking-tight mb-6">Ready for The Catalyst</h3>
+              <div className="font-mono text-xs uppercase tracking-wider text-[#E6E6E1]/50 mb-4">The Handoff</div>
+              <h3 className="text-3xl font-bold uppercase tracking-tight mb-6">Scope Locked. Build Begins.</h3>
               <p className="text-[#E6E6E1]/80 font-medium mb-8">
-                With onboarding complete, The Catalyst delivery begins immediately. No ramp-up delays. No infrastructure surprises. Just execution.
+                The Spark ends with complete clarity. You know what's being built, how it's being built, when it ships, and what it costs. The Catalyst is pure execution.
               </p>
               <div className="border-t border-white/20 pt-8">
-                <p className="text-sm text-[#E6E6E1]/60 mb-6">Typical flow:</p>
+                <p className="text-sm text-[#E6E6E1]/60 mb-6">Typical timeline:</p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
                     <span className="font-mono text-xs bg-white/10 px-3 py-1 rounded">Week 1-2</span>
-                    <span className="font-medium">The Spark (Onboarding)</span>
+                    <span className="font-medium">The Spark → Development Scope</span>
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="font-mono text-xs bg-white/10 px-3 py-1 rounded">Week 3+</span>
-                    <span className="font-medium">The Catalyst (Delivery)</span>
+                    <span className="font-medium">The Catalyst → Your Software</span>
                   </div>
                 </div>
               </div>
