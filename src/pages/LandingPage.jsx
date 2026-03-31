@@ -176,8 +176,11 @@ const LandingPage = () => {
             <span className="gap-word inline-block">that</span>{' '}
             <span className="gap-word inline-block">gap.</span>
           </h2>
-          <p className="gap-word text-xl md:text-2xl text-[#E6E6E1]/60 font-medium max-w-3xl">
-            The bridge is called <strong className="text-[#E6E6E1]">Agentic&nbsp;Engineering</strong> — and it changes&nbsp;everything.
+          <p className="gap-word text-xl md:text-2xl text-[#E6E6E1]/60 font-medium max-w-3xl mb-6">
+            The bridge is called <strong className="text-[#E6E6E1]">Agentic Engineering</strong> — and it changes how software can be delivered. We aim to make it an experience.
+          </p>
+          <p className="gap-word text-lg text-[#E6E6E1]/40 font-medium">
+            And one more thing. It practically pays for itself.
           </p>
         </div>
       </section>
