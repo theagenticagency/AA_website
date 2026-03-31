@@ -221,9 +221,9 @@ const CorePage = () => {
                         </div>
 
                         {/* Expanded View */}
-                        <div className={`overflow-hidden transition-all duration-500 ease-out ${expandedItem === 'A1' ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                        <div className={`overflow-hidden transition-all duration-500 ease-out ${expandedItem === 'A1' ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}`}>
                           <div className="bg-[#111] text-[#E6E6E1] p-6">
-                            {/* PiP Frame - Real Screenshot with Privacy Blur */}
+                            {/* PiP Frame - Real Screenshot */}
                             <div className="bg-black rounded-xl overflow-hidden mb-6 border border-white/10">
                               <div className="bg-black/50 px-4 py-2 border-b border-white/10 flex items-center justify-between">
                                 <span className="text-xs text-white/50 font-mono">Preview: Invoice Discrepancy Queue</span>
@@ -233,31 +233,15 @@ const CorePage = () => {
                                   <span className="w-2 h-2 rounded-full bg-green-500"></span>
                                 </div>
                               </div>
-                              {/* Real Screenshot with Creative Censoring */}
+                              {/* Real Screenshot - No Blur */}
                               <div className="relative overflow-hidden">
                                 <img
                                   src="/preview-invoices-blurred.png"
                                   alt="Dashboard preview"
                                   className="w-full h-auto"
                                 />
-                                {/* Top nav blur - hide brand */}
-                                <div className="absolute top-0 left-0 right-0 h-[4%] backdrop-blur-xl bg-gradient-to-b from-black/90 to-transparent"></div>
-                                {/* Brand area heavy blur */}
-                                <div className="absolute top-0 left-0 w-[15%] h-[5%] backdrop-blur-2xl bg-black/80"></div>
-                                {/* Company names column blur - left side */}
-                                <div className="absolute top-[35%] left-[17%] w-[12%] h-[55%] backdrop-blur-md bg-white/5"></div>
-                                {/* Footer blur */}
-                                <div className="absolute bottom-0 left-0 right-0 h-[4%] backdrop-blur-xl bg-gradient-to-t from-black/90 to-transparent"></div>
-                                {/* Subtle vignette */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10 pointer-events-none"></div>
-                                {/* Feature highlight glow */}
-                                <div className="absolute top-[28%] left-[3%] right-[3%] h-[8%] border-2 border-amber-500/50 rounded-lg shadow-[0_0_20px_rgba(245,158,11,0.3)] pointer-events-none"></div>
-                                {/* "NEW" badge overlay */}
-                                <div className="absolute top-[26%] right-[5%] bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded shadow-lg">
-                                  QUICK REVIEW
-                                </div>
                                 {/* Live indicator */}
-                                <div className="absolute bottom-[8%] right-[3%] bg-black/90 backdrop-blur-sm rounded-lg px-3 py-1.5 border border-white/20 shadow-lg">
+                                <div className="absolute bottom-4 right-4 bg-black/90 backdrop-blur-sm rounded-lg px-3 py-1.5 border border-white/20 shadow-lg">
                                   <span className="text-[10px] text-green-400 font-mono uppercase tracking-wider flex items-center gap-1.5">
                                     <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
                                     Live Preview
@@ -268,15 +252,25 @@ const CorePage = () => {
 
                             {/* Netflix-style Actions */}
                             <div className="flex items-center gap-4">
-                              <button className="flex-1 bg-green-500 hover:bg-green-400 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-3 transition-all duration-200 group">
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setExpandedItem(null);
+                                }}
+                                className="flex-1 bg-green-500 hover:bg-green-400 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-3 transition-all duration-200 group"
+                              >
                                 <Check size={20} />
                                 <span>Looks Good</span>
                                 <span className="text-white/60 group-hover:text-white transition-colors">→ Next</span>
                               </button>
-                              <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-medium py-4 px-6 rounded-xl transition-all duration-200">
+                              <a
+                                href="mailto:hello@agenticagency.dev?subject=I%20clicked%20Discuss%20%F0%9F%91%80&body=Hi%20Agentic%20Agency%2C%0A%0AI%20found%20your%20interactive%20Command%20Center%20demo%20and%20clicked%20%22Discuss%22%20%E2%80%94%20which%20means%20I%E2%80%99m%20curious%20about%20what%20it%E2%80%99s%20like%20to%20experience%20your%20AI-powered%20product%20feedback%20agent%20for%20real.%0A%0AI%E2%80%99d%20love%20to%20see%20a%20live%20demo%20%E2%80%94%20video%20call%20or%20in-person%2C%20whatever%20works.%0A%0ALooks%20good%20%E2%86%92%20Next.%0A%0A%5BJust%20press%20send%5D"
+                                onClick={(e) => e.stopPropagation()}
+                                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-medium py-4 px-6 rounded-xl transition-all duration-200"
+                              >
                                 <MessageCircle size={18} />
                                 <span>Discuss</span>
-                              </button>
+                              </a>
                             </div>
 
                             {/* Quick feedback hint */}
