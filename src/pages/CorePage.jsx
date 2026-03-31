@@ -14,10 +14,10 @@ const CorePage = () => {
   const { openInquiry } = useInquiry();
 
   const coreFAQs = [
-    { q: "What is The Core?", a: "The Core is the Command Center for AI-driven development. Real-time dashboards, session management, operational control, and SLA-backed support across all your Catalyst engagements." },
+    { q: "What is The Core?", a: "The Core is the Command Center for AI-driven development. Today: real-time dashboards, session management, and SLA-backed support. Tomorrow: a system that learns your preferences and anticipates your needs." },
     { q: "Do we need it after The Catalyst?", a: "Optional but recommended. The Core provides ongoing visibility, support, and the ability to quickly spin up new engagements without re-onboarding." },
+    { q: "What's the vision?", a: "A Command Center that learns you. Where we author, you edit. Where we anticipate, you confirm. Each engagement makes the next one smoother. Friction approaches zero over time." },
     { q: "What's included in the SLA?", a: "Response time guarantees, availability commitments, priority support queue, and escalation paths. Specific terms depend on your tier." },
-    { q: "Can we self-manage without The Core?", a: "Yes. After The Catalyst, code is yours. The Core is for organizations that want ongoing operational visibility and rapid access to new engagements." },
     { q: "How is pricing structured?", a: "Yearly retainer based on scope of coverage and SLA tier. Contact us for a quote tailored to your operational needs." },
     { q: "Can we add new Catalyst engagements through The Core?", a: "Yes — that's a key benefit. The Core maintains your organizational context, so new engagements start faster and integrate seamlessly." }
   ];
@@ -81,7 +81,7 @@ const CorePage = () => {
             The Command Center. <strong className="text-[#E6E6E1]">Visibility. Control. Continuity.</strong>
           </p>
           <p className="hero-anim text-lg text-[#E6E6E1]/60 max-w-2xl mb-12 font-medium">
-            Real-time dashboards, session management, operational control, and SLA-backed support across all your AI development engagements.
+            Today: dashboards, session management, SLA-backed support. Tomorrow: a system that learns your preferences and anticipates your needs.
           </p>
           <div className="hero-anim flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <MagneticButton
@@ -310,6 +310,139 @@ const CorePage = () => {
               >
                 Contact us
               </MagneticButton>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ONE FLUID MOTION */}
+      <section className="py-24 px-6 md:px-16 bg-black text-[#E6E6E1]">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="text-center mb-16">
+            <div className="font-mono text-xs uppercase tracking-widest text-[#E6E6E1]/40 mb-4">The Flow</div>
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-6">
+              One Fluid Motion
+            </h2>
+            <p className="text-xl text-[#E6E6E1]/70 font-medium max-w-3xl mx-auto">
+              From screen specifications to look & feel reviews to final acceptance.
+              We author. You edit. Each interaction takes less effort than the last.
+            </p>
+          </div>
+
+          {/* The Flow Steps */}
+          <div className="grid md:grid-cols-4 gap-6 mb-16">
+            {[
+              { num: "01", title: "Screen Specs", desc: "We draft complete screen specifications. You confirm or adjust. One tap." },
+              { num: "02", title: "Look & Feel", desc: "Visual reviews with your preferences pre-applied. Familiar patterns, no surprises." },
+              { num: "03", title: "Acceptance", desc: "Polished deliveries ready for sign-off. The hard work is done — you just approve." },
+              { num: "04", title: "Iterate", desc: "Each review trains us. Next time, we're faster. Friction approaches zero." }
+            ].map((step, i) => (
+              <div key={i} className="relative">
+                <div className="bg-[#1a1a1a] border border-white/10 rounded-xl p-6 h-full hover:border-white/30 transition-colors">
+                  <div className="font-mono text-3xl font-bold text-[#E6E6E1]/20 mb-4">{step.num}</div>
+                  <h3 className="text-lg font-bold uppercase tracking-tight mb-3">{step.title}</h3>
+                  <p className="text-sm text-[#E6E6E1]/60">{step.desc}</p>
+                </div>
+                {i < 3 && (
+                  <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-[#E6E6E1]/20 text-2xl">→</div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* The Experience Promise */}
+          <div className="bg-gradient-to-br from-[#E6E6E1]/5 to-transparent border border-[#E6E6E1]/10 rounded-xl p-10 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <div className="border-l-2 border-[#E6E6E1]/30 pl-6">
+                  <p className="text-2xl text-[#E6E6E1]/90 italic font-medium leading-relaxed">
+                    "Working with them felt like having a team that read my mind. I barely had to do anything."
+                  </p>
+                  <p className="text-[#E6E6E1]/40 text-sm mt-4">— The experience we're building toward</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <Check size={20} className="text-green-400 mt-0.5 shrink-0" />
+                  <span className="text-[#E6E6E1]/70">Primary button is always "Looks Good (Next)"</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check size={20} className="text-green-400 mt-0.5 shrink-0" />
+                  <span className="text-[#E6E6E1]/70">Your preferences pre-applied before you see it</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check size={20} className="text-green-400 mt-0.5 shrink-0" />
+                  <span className="text-[#E6E6E1]/70">Continuation is effortless — you just confirm</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* THE VISION */}
+      <section className="py-24 px-6 md:px-16 bg-[#E6E6E1]">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <div className="font-mono text-xs uppercase tracking-widest text-black/40 mb-4">The Vision</div>
+              <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">
+                Make Them Love<br/>Their Job Again
+              </h2>
+              <p className="text-xl text-black/80 font-medium leading-relaxed mb-6">
+                The Core is the foundation for a <strong className="text-black">Command Center</strong> that transforms how you work with us.
+              </p>
+              <p className="text-lg text-black/60 font-medium leading-relaxed mb-8">
+                Not "good enough." Astonishment. Kill them with kindness until they can't ignore you. That's the bar.
+              </p>
+
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { label: "Before", items: ['"Another vendor review"', '"This is draining"', '"I have to do this"'] },
+                  { label: "After", items: ['"I look forward to this"', '"They read my mind"', '"I want to see what\'s next"'] }
+                ].map((col, i) => (
+                  <div key={i} className={`p-5 rounded-xl ${i === 0 ? 'bg-black/5' : 'bg-black text-[#E6E6E1]'}`}>
+                    <div className="font-mono text-xs uppercase tracking-wider mb-3 opacity-60">{col.label}</div>
+                    <ul className="space-y-2">
+                      {col.items.map((item, j) => (
+                        <li key={j} className={`text-sm italic ${i === 0 ? 'text-black/60' : 'text-[#E6E6E1]/80'}`}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="bg-white border-2 border-black rounded-xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                  <span className="font-mono text-xs uppercase tracking-wider text-black/50">Available Now</span>
+                </div>
+                <ul className="space-y-3">
+                  {["Real-time project dashboards", "Session visibility", "SLA-backed support", "Screen specification reviews", "Look & feel acceptance", "Delivery sign-off"].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm font-medium text-black/80">
+                      <Check size={16} className="text-black" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="bg-white/60 border border-black/20 rounded-xl p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-2 h-2 rounded-full bg-black/30"></div>
+                  <span className="font-mono text-xs uppercase tracking-wider text-black/40">On the Horizon</span>
+                </div>
+                <ul className="space-y-3">
+                  {["Preference learning system", "Multi-phase orchestration", "Security posture dashboards", "Automated validation chains", "One-tap approval workflows"].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm font-medium text-black/50">
+                      <Eye size={16} className="text-black/30" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
