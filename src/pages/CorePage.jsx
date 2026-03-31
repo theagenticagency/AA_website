@@ -369,16 +369,16 @@ const CorePage = () => {
         </div>
       </section>
 
-      {/* PHASE 2: OPERATIONS — KEEPING THE LIGHTS ON */}
+      {/* PHASE 2: OPERATIONS — PEAK CONDITION */}
       <section id="ops-demo" className="py-24 px-6 md:px-16 bg-[#E6E6E1] overflow-hidden">
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-16">
             <div className="font-mono text-xs uppercase tracking-widest text-black/40 mb-4">During Operations</div>
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter text-black mb-6">
-              Keeping the Lights On
+              Peak Condition
             </h2>
             <p className="text-xl text-black/70 font-medium max-w-2xl mx-auto">
-              Fun and frictionless. Your operational dashboard — peace of mind at a glance.
+              Your operational dashboard — peace of mind at a glance. Everything running smoothly, always visible.
             </p>
           </div>
 
