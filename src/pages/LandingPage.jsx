@@ -153,7 +153,7 @@ const LandingPage = () => {
             Overseen by engineers.
           </h1>
           <p className="hero-anim text-xl md:text-2xl text-black/60 max-w-2xl font-medium">
-            Fixed price. Production-grade. Yours to keep.
+            Fixed&nbsp;price. Production-grade. Yours to&nbsp;keep.
           </p>
         </div>
 
@@ -168,14 +168,17 @@ const LandingPage = () => {
         <div className="max-w-5xl mx-auto">
           <p className="gap-word text-lg md:text-xl text-[#E6E6E1]/50 font-medium mb-12">
             There's a gap between "AI helped me write this function"<br className="hidden md:block" />
-            and "AI systematically delivered this project."
+            and "AI systematically delivered this&nbsp;project."
           </p>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight uppercase">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight uppercase mb-8">
             <span className="gap-word inline-block">We</span>{' '}
             <span className="gap-word inline-block">close</span>{' '}
             <span className="gap-word inline-block">that</span>{' '}
             <span className="gap-word inline-block">gap.</span>
           </h2>
+          <p className="gap-word text-xl md:text-2xl text-[#E6E6E1]/60 font-medium max-w-3xl">
+            The bridge is called <strong className="text-[#E6E6E1]">Agentic&nbsp;Engineering</strong> — and it changes&nbsp;everything.
+          </p>
         </div>
       </section>
 
@@ -195,7 +198,7 @@ const LandingPage = () => {
                 Before we build, we scope.
               </p>
               <p className="text-black/60 font-medium leading-relaxed mb-8">
-                What are you building? For who? Why? Which systems does it touch? We nail the context so the build goes fast. 1-2 weeks. One scope document. Zero ambiguity.
+                What are you building? For who? Why? Which systems does it touch? We nail the context so the build goes fast. 1-2&nbsp;weeks. One scope&nbsp;document. Zero&nbsp;ambiguity.
               </p>
               <Link to="/the-spark" className="inline-flex items-center gap-2 font-bold text-black hover:gap-3 transition-all">
                 Learn more <ArrowUpRight size={18} />
@@ -301,7 +304,7 @@ const LandingPage = () => {
               </div>
               <div>
                 <h4 className="font-bold text-lg uppercase tracking-tight mb-3">Results over credentials.</h4>
-                <p className="text-[#E6E6E1]/60 font-medium">The work speaks for itself.</p>
+                <p className="text-[#E6E6E1]/60 font-medium">The work speaks for&nbsp;itself.</p>
               </div>
             </div>
           </div>

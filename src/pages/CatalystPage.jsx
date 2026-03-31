@@ -79,7 +79,7 @@ const CatalystPage = () => {
             Enterprise software. <strong className="text-[#E6E6E1]">Delivered.</strong>
           </p>
           <p className="hero-anim text-lg text-[#E6E6E1]/60 max-w-2xl mb-12 font-medium">
-            AI-powered development with human engineering oversight. Fixed price. Production-grade. Yours to keep.
+            AI-powered development with human engineering oversight. Fixed&nbsp;price. Production-grade. Yours to&nbsp;keep.
           </p>
           <div className="hero-anim flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <MagneticButton
@@ -102,7 +102,7 @@ const CatalystPage = () => {
             <div>
               <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">What You Get</h2>
               <p className="text-xl text-black/80 font-medium leading-relaxed mb-6">
-                AI handles the heavy lifting. Engineers ensure it's done right.
+                AI handles the heavy lifting. Engineers ensure it's done&nbsp;right.
               </p>
               <p className="text-xl text-black/70 font-medium leading-relaxed">
                 Every line reviewed. Every feature tested. Every deliverable documented.

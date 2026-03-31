@@ -154,7 +154,7 @@ const SparkPage = () => {
                 Great software starts with great understanding. Our AI-powered sync sessions capture context directly from your stakeholders — no lengthy interviews, no lost nuance.
               </p>
               <p className="text-xl text-black/70 font-medium leading-relaxed mb-8">
-                Three perspectives. One shared understanding. AI synthesizes, humans validate.
+                Three&nbsp;perspectives. One shared&nbsp;understanding. AI&nbsp;synthesizes, humans&nbsp;validate.
               </p>
               <div className="flex items-center gap-3 text-sm font-medium text-black/60">
                 <MessageSquare size={18} />

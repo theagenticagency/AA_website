@@ -119,7 +119,7 @@ const AboutPage = () => {
             ABOUT US
           </h1>
           <p className="hero-anim text-xl md:text-2xl text-black/80 max-w-3xl font-medium leading-snug">
-            We build enterprise software. AI does the heavy lifting. Engineers ensure it's done right.
+            We build enterprise software. AI does the heavy lifting. Engineers ensure it's done&nbsp;right.
           </p>
         </div>
       </section>
@@ -164,7 +164,7 @@ const AboutPage = () => {
             <div className="value-item bg-white rounded-xl p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <h3 className="text-2xl font-bold uppercase tracking-tight mb-4">Results over credentials.</h3>
               <p className="text-black/70 font-medium">
-                We don't sell certifications. We deliver working software. The work speaks for itself.
+                We don't sell certifications. We deliver working software. The work speaks for&nbsp;itself.
               </p>
             </div>
           </div>

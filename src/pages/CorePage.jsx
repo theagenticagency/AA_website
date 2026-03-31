@@ -134,7 +134,7 @@ const CorePage = () => {
               Your Morning View
             </h2>
             <p className="text-xl text-black/70 font-medium max-w-2xl mx-auto">
-              Open your dashboard. See what needs your attention. Three taps, done.
+              Open your dashboard. See what needs your attention. Three&nbsp;taps,&nbsp;done.
             </p>
           </div>
 
@@ -555,7 +555,7 @@ const CorePage = () => {
               We Author. You Edit.
             </h2>
             <p className="text-xl text-black/70 font-medium leading-relaxed">
-              Most vendors ask you to write requirements, manage timelines, chase updates. We flip that. You receive polished work. You confirm or adjust. That's it.
+              Most vendors ask you to write requirements, manage timelines, chase updates. We flip that. You receive polished work. You confirm or&nbsp;adjust.&nbsp;Done.
             </p>
           </div>
 
