@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowUpRight, Monitor, Check, Eye } from 'lucide-react';
+import { ArrowUpRight, Monitor, Check, Eye, ChevronDown, MessageCircle, Play } from 'lucide-react';
 import { MagneticButton } from '../components/common';
 import { ProductLadderSection, FAQSection } from '../components/sections';
 import { PageMeta, BreadcrumbSchema } from '../components/seo';
@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 const CorePage = () => {
   const pageRef = useRef(null);
   const { openInquiry } = useInquiry();
+  const [expandedItem, setExpandedItem] = useState(null);
 
   const coreFAQs = [
     { q: "What is The Core?", a: "The Core is the Command Center for AI-driven development. Today: real-time dashboards, session management, and SLA-backed support. Tomorrow: a system that learns your preferences and anticipates your needs." },
@@ -192,25 +193,79 @@ const CorePage = () => {
                     </div>
 
                     <div className="divide-y divide-black/5">
-                      {/* Feedback Item 1 - HIGH PRIORITY */}
-                      <div className="morning-card p-4 border-l-4 border-amber-500 hover:bg-black/[0.02] transition-colors cursor-pointer group">
-                        <div className="flex items-start gap-4">
-                          <div className="relative">
-                            <span className="w-8 h-8 bg-black/5 text-black text-xs font-bold rounded flex items-center justify-center shrink-0">A1</span>
-                            <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full"></span>
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2 mb-1">
-                              <span className="font-medium text-sm">Dashboard Filters</span>
-                              <span className="px-1.5 py-0.5 bg-amber-500/10 text-amber-700 text-[10px] rounded font-medium">Blocking</span>
-                              <span className="text-xs text-black/40">10 min ago</span>
+                      {/* Feedback Item 1 - HIGH PRIORITY - EXPANDABLE */}
+                      <div className="morning-card border-l-4 border-amber-500 transition-all duration-300">
+                        <div
+                          className="p-4 hover:bg-black/[0.02] cursor-pointer"
+                          onClick={() => setExpandedItem(expandedItem === 'A1' ? null : 'A1')}
+                        >
+                          <div className="flex items-start gap-4">
+                            <div className="relative">
+                              <span className="w-8 h-8 bg-black/5 text-black text-xs font-bold rounded flex items-center justify-center shrink-0">A1</span>
+                              <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full"></span>
                             </div>
-                            <p className="text-sm text-black/70">"Priority filter added as requested. Sort by urgency enabled."</p>
-                            <div className="text-xs text-black/40 mt-1">Your preferences pre-applied • <span className="text-amber-600">Blocks 2 other items</span></div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2 mb-1">
+                                <span className="font-medium text-sm">Dashboard Filters</span>
+                                <span className="px-1.5 py-0.5 bg-amber-500/10 text-amber-700 text-[10px] rounded font-medium">Blocking</span>
+                                <span className="text-xs text-black/40">10 min ago</span>
+                              </div>
+                              <p className="text-sm text-black/70">"Priority filter added as requested. Sort by urgency enabled."</p>
+                              <div className="text-xs text-black/40 mt-1">Your preferences pre-applied • <span className="text-amber-600">Blocks 2 other items</span></div>
+                            </div>
+                            <ChevronDown
+                              size={20}
+                              className={`text-black/30 transition-transform duration-300 ${expandedItem === 'A1' ? 'rotate-180' : ''}`}
+                            />
                           </div>
-                          <button className="px-3 py-1.5 rounded-lg bg-green-500 text-white font-bold text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                            Looks Good →
-                          </button>
+                        </div>
+
+                        {/* Expanded View */}
+                        <div className={`overflow-hidden transition-all duration-500 ease-out ${expandedItem === 'A1' ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                          <div className="bg-[#111] text-[#E6E6E1] p-6">
+                            {/* PiP Frame - Screen Preview */}
+                            <div className="bg-black rounded-xl overflow-hidden mb-6 border border-white/10">
+                              <div className="bg-black/50 px-4 py-2 border-b border-white/10 flex items-center justify-between">
+                                <span className="text-xs text-white/50 font-mono">Preview: Dashboard Filters</span>
+                                <div className="flex items-center gap-2">
+                                  <span className="w-2 h-2 rounded-full bg-red-500"></span>
+                                  <span className="w-2 h-2 rounded-full bg-yellow-500"></span>
+                                  <span className="w-2 h-2 rounded-full bg-green-500"></span>
+                                </div>
+                              </div>
+                              <div className="aspect-video bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] flex items-center justify-center relative">
+                                {/* Placeholder for screen preview */}
+                                <div className="text-center">
+                                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4 hover:bg-white/20 transition-colors cursor-pointer">
+                                    <Play size={24} className="text-white/70 ml-1" />
+                                  </div>
+                                  <p className="text-white/40 text-sm">Click to preview changes</p>
+                                </div>
+                                {/* PiP indicator */}
+                                <div className="absolute bottom-4 right-4 bg-black/80 rounded-lg px-3 py-1.5 border border-white/10">
+                                  <span className="text-[10px] text-white/50 font-mono uppercase tracking-wider">Live Preview</span>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Netflix-style Actions */}
+                            <div className="flex items-center gap-4">
+                              <button className="flex-1 bg-green-500 hover:bg-green-400 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-3 transition-all duration-200 group">
+                                <Check size={20} />
+                                <span>Looks Good</span>
+                                <span className="text-white/60 group-hover:text-white transition-colors">→ Next</span>
+                              </button>
+                              <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-medium py-4 px-6 rounded-xl transition-all duration-200">
+                                <MessageCircle size={18} />
+                                <span>Discuss</span>
+                              </button>
+                            </div>
+
+                            {/* Quick feedback hint */}
+                            <p className="text-center text-white/30 text-xs mt-4">
+                              Approve to unblock 2 dependent items • Or start a conversation
+                            </p>
+                          </div>
                         </div>
                       </div>
 
