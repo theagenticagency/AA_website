@@ -52,8 +52,8 @@ const SparkPage = () => {
   return (
     <div ref={pageRef}>
       <PageMeta
-        title="The Spark — AI Delivery Readiness"
-        description="Structured onboarding that prepares your organization to receive and benefit from AI Development as a Service. Infrastructure, governance, team alignment."
+        title="The Spark — Train Your Teams in Agentic Engineering"
+        description="We train your teams to use AI in software development. Move from ad-hoc AI usage to structured, production-grade agentic engineering. Results visible and immediate."
         path="/the-spark"
       />
       <BreadcrumbSchema items={[
@@ -77,10 +77,10 @@ const SparkPage = () => {
             THE SPARK
           </h1>
           <p className="hero-anim text-xl md:text-2xl text-black/80 max-w-3xl mb-6 font-medium leading-snug">
-            Get ready for AI delivery. <strong>The Spark</strong> is structured onboarding that prepares your organization to receive and benefit from AI Development as a Service.
+            We train your teams to use AI in software development. <strong>The results are visible and immediate.</strong>
           </p>
           <p className="hero-anim text-lg text-black/60 max-w-2xl mb-12 font-medium">
-            Infrastructure. Governance. Team alignment. Everything in place before we write a single line of code.
+            Move from ad-hoc AI usage to structured, production-grade agentic engineering. Infrastructure, governance, team alignment — everything in place before we write a single line of code.
           </p>
           <div className="hero-anim flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <MagneticButton
@@ -100,12 +100,13 @@ const SparkPage = () => {
       <section className="py-24 px-6 md:px-16 bg-black text-[#E6E6E1]">
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-3xl">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">Why onboarding matters</h2>
+            <div className="font-mono text-xs uppercase tracking-widest text-[#E6E6E1]/40 mb-4">Engineering {'>'} Prompting</div>
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">From Ad-Hoc to Production-Grade</h2>
             <p className="text-xl text-[#E6E6E1]/80 font-medium leading-relaxed mb-8">
-              AI-powered development moves fast. Without proper preparation, that speed becomes chaos — blocked deployments, security reviews, unclear ownership.
+              Most teams use AI casually — copy-paste prompts, no versioning, no testing, no governance. That's not engineering. That's experimentation.
             </p>
             <p className="text-xl text-[#E6E6E1]/80 font-medium leading-relaxed">
-              <strong className="text-[#E6E6E1]">The Spark</strong> ensures you're ready to receive high-velocity delivery. When The Catalyst begins, there are no surprises — just execution.
+              <strong className="text-[#E6E6E1]">The Spark</strong> transforms your team into agentic engineering practitioners. Structured methodology. Proper tooling. Ready for high-velocity delivery.
             </p>
           </div>
 
