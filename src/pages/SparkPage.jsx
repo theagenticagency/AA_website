@@ -52,8 +52,8 @@ const SparkPage = () => {
   return (
     <div ref={pageRef}>
       <PageMeta
-        title="The Spark — Train Your Teams in Agentic Engineering"
-        description="We train your teams to use AI in software development. Move from ad-hoc AI usage to structured, production-grade agentic engineering. Results visible and immediate."
+        title="The Spark — Scope & Context for AI Development"
+        description="Before development begins, we nail the context — what you're building, for who, and why. The foundation for AI Development as a Service. Alignment now, speed later."
         path="/the-spark"
       />
       <BreadcrumbSchema items={[
@@ -77,10 +77,10 @@ const SparkPage = () => {
             THE SPARK
           </h1>
           <p className="hero-anim text-xl md:text-2xl text-black/80 max-w-3xl mb-6 font-medium leading-snug">
-            Your team. <strong>Upgraded.</strong>
+            Scope it right. <strong>Build it once.</strong>
           </p>
           <p className="hero-anim text-lg text-black/60 max-w-2xl mb-12 font-medium">
-            Two weeks from now, your developers ship production code with AI — not prompts, not experiments. Real engineering. We install the capability, you keep it forever.
+            Before we write a line of code, we nail the context — what you're building, for who, and why. Alignment now means speed later. This is the foundation for everything that follows.
           </p>
           <div className="hero-anim flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <MagneticButton
@@ -100,13 +100,13 @@ const SparkPage = () => {
       <section className="py-24 px-6 md:px-16 bg-black text-[#E6E6E1]">
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-3xl">
-            <div className="font-mono text-xs uppercase tracking-widest text-[#E6E6E1]/40 mb-4">Engineering {'>'} Prompting</div>
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">From Ad-Hoc to Production-Grade</h2>
+            <div className="font-mono text-xs uppercase tracking-widest text-[#E6E6E1]/40 mb-4">Why This Matters</div>
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">Context Is Everything</h2>
             <p className="text-xl text-[#E6E6E1]/80 font-medium leading-relaxed mb-8">
-              Most teams use AI casually — copy-paste prompts, no versioning, no testing, no governance. That's not engineering. That's experimentation.
+              AI-powered development moves fast. But speed without context is waste. Without knowing what you're building, for who, and why — the end result suffers.
             </p>
             <p className="text-xl text-[#E6E6E1]/80 font-medium leading-relaxed">
-              <strong className="text-[#E6E6E1]">The Spark</strong> transforms your team into agentic engineering practitioners. Structured methodology. Proper tooling. Ready for high-velocity delivery.
+              <strong className="text-[#E6E6E1]">The Spark</strong> captures the context that makes The Catalyst succeed. Specification. Alignment. A shared understanding of what "done" looks like. Time spent here is time saved later.
             </p>
           </div>
 

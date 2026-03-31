@@ -168,7 +168,7 @@ const LandingPage = () => {
               Start with The Spark <ArrowUpRight size={20} />
             </MagneticButton>
             <span className="font-mono text-sm font-bold uppercase tracking-widest text-black/50 border-l-2 border-black/20 pl-4 py-1">
-              We train your teams to use AI in software development.<br/>The results are visible and immediate.
+              Enterprise software, delivered.<br/>Fixed price. Production-grade. Yours to keep.
             </span>
           </div>
         </div>

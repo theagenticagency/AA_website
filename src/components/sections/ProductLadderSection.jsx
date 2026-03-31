@@ -14,8 +14,8 @@ const ProductLadderSection = ({ currentProduct = null, variant = 'full' }) => {
       id: 'spark',
       name: 'THE SPARK',
       duration: '1-2 Weeks',
-      tagline: 'Train your teams in agentic engineering',
-      description: 'We train your teams to use AI in software development. Move from ad-hoc AI usage to structured, production-grade agentic engineering. Results visible and immediate.',
+      tagline: 'Scope it right. Build it once.',
+      description: 'Before development begins, we nail the context — what you're building, for who, and why. The foundation for AI Development as a Service.',
       price: 'Scoped engagement',
       to: '/the-spark',
       cta: 'Learn more'
