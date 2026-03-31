@@ -15,7 +15,7 @@ const ProductLadderSection = ({ currentProduct = null, variant = 'full' }) => {
       name: 'THE SPARK',
       duration: '1-2 Weeks',
       tagline: 'Scope it right. Build it once.',
-      description: 'Before development begins, we nail the context — what you're building, for who, and why. The foundation for AI Development as a Service.',
+      description: "Before development begins, we nail the context — what you're building, for who, and why. The foundation for AI Development as a Service.",
       price: 'Scoped engagement',
       to: '/the-spark',
       cta: 'Learn more'
