@@ -613,43 +613,114 @@ const CorePage = () => {
         </div>
       </section>
 
-      {/* THE DIFFERENCE */}
+      {/* THE DIFFERENCE — Experiential Flip */}
       <section className="py-24 px-6 md:px-16 bg-[#E6E6E1]">
         <div className="max-w-[1400px] mx-auto">
-          <div className="max-w-3xl mb-16">
-            <div className="font-mono text-xs uppercase tracking-widest text-black/40 mb-4">The Difference</div>
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-6">
-              We Author. You Edit.
-            </h2>
-            <p className="text-xl text-black/70 font-medium leading-relaxed">
-              Most vendors ask you to write requirements, manage timelines, chase updates. We flip that. You receive polished work. You confirm or&nbsp;adjust.&nbsp;Done.
-            </p>
+          {/* The Flip Concept */}
+          <div className="grid lg:grid-cols-2 gap-16 mb-20">
+            {/* The Old Way - Crossed Out */}
+            <div className="relative">
+              <div className="absolute -left-4 top-0 bottom-0 w-1 bg-black/10"></div>
+              <div className="font-mono text-xs uppercase tracking-widest text-black/30 mb-6">The Old Way</div>
+              <div className="space-y-4 opacity-50">
+                <div className="flex items-center gap-4 line-through decoration-black/40 decoration-2">
+                  <span className="text-2xl">📝</span>
+                  <span className="text-lg text-black/60">You write the requirements</span>
+                </div>
+                <div className="flex items-center gap-4 line-through decoration-black/40 decoration-2">
+                  <span className="text-2xl">📊</span>
+                  <span className="text-lg text-black/60">You manage the timelines</span>
+                </div>
+                <div className="flex items-center gap-4 line-through decoration-black/40 decoration-2">
+                  <span className="text-2xl">📞</span>
+                  <span className="text-lg text-black/60">You chase the updates</span>
+                </div>
+                <div className="flex items-center gap-4 line-through decoration-black/40 decoration-2">
+                  <span className="text-2xl">🔍</span>
+                  <span className="text-lg text-black/60">You review from scratch</span>
+                </div>
+              </div>
+            </div>
+
+            {/* The Agentic Way */}
+            <div className="relative">
+              <div className="absolute -left-4 top-0 bottom-0 w-1 bg-black"></div>
+              <div className="font-mono text-xs uppercase tracking-widest text-black/60 mb-6">The Agentic Way</div>
+              <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">
+                We Author.<br/>You Edit.
+              </h2>
+              <p className="text-xl text-black/70 font-medium leading-relaxed">
+                You receive polished work. You confirm or adjust. Done.
+              </p>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {[
-              {
-                icon: Monitor,
-                title: "Screen Specifications",
-                desc: "We draft complete specs with your preferences pre-applied. You tap 'Looks Good' or mark adjustments."
-              },
-              {
-                icon: Eye,
-                title: "Look & Feel Reviews",
-                desc: "Visual designs that match your brand and previous approvals. Familiar patterns, no surprises."
-              },
-              {
-                icon: Check,
-                title: "Delivery Acceptance",
-                desc: "Polished features with test coverage and documentation. The hard work is done — you just approve."
-              }
-            ].map((item, i) => (
-              <div key={i} className="feature-card bg-white rounded-xl p-8 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <item.icon size={32} className="text-black mb-4" />
-                <h3 className="text-xl font-bold uppercase tracking-tight mb-3">{item.title}</h3>
-                <p className="text-black/70 font-medium">{item.desc}</p>
+          {/* Interactive Flow — Three Taps */}
+          <div className="bg-black text-[#E6E6E1] rounded-2xl p-8 md:p-12 mb-16">
+            <div className="text-center mb-12">
+              <div className="font-mono text-xs uppercase tracking-widest text-[#E6E6E1]/40 mb-4">Your Workflow</div>
+              <h3 className="text-2xl md:text-3xl font-bold">Three moments. Three taps. You're done.</h3>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Step 1: Specs */}
+              <div className="group relative bg-[#1a1a1a] rounded-xl p-6 border border-white/10 hover:border-white/30 transition-all duration-300">
+                <div className="absolute top-4 right-4 font-mono text-xs text-white/20">01</div>
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+                  <Monitor size={24} className="text-white/70" />
+                </div>
+                <h4 className="text-lg font-bold uppercase tracking-tight mb-3">Screen Specs Arrive</h4>
+                <p className="text-[#E6E6E1]/60 text-sm mb-6">Complete specs. Your preferences pre-applied.</p>
+                <div className="flex items-center gap-2">
+                  <button className="flex-1 bg-green-500/20 text-green-400 py-2 px-4 rounded-lg text-sm font-medium hover:bg-green-500/30 transition-colors">
+                    Looks Good ✓
+                  </button>
+                  <button className="bg-white/10 text-white/60 py-2 px-4 rounded-lg text-sm hover:bg-white/20 transition-colors">
+                    Adjust
+                  </button>
+                </div>
               </div>
-            ))}
+
+              {/* Step 2: Look & Feel */}
+              <div className="group relative bg-[#1a1a1a] rounded-xl p-6 border border-white/10 hover:border-white/30 transition-all duration-300">
+                <div className="absolute top-4 right-4 font-mono text-xs text-white/20">02</div>
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+                  <Eye size={24} className="text-white/70" />
+                </div>
+                <h4 className="text-lg font-bold uppercase tracking-tight mb-3">Designs Match Your Brand</h4>
+                <p className="text-[#E6E6E1]/60 text-sm mb-6">Familiar patterns. No surprises.</p>
+                <div className="flex items-center gap-2">
+                  <button className="flex-1 bg-green-500/20 text-green-400 py-2 px-4 rounded-lg text-sm font-medium hover:bg-green-500/30 transition-colors">
+                    Looks Good ✓
+                  </button>
+                  <button className="bg-white/10 text-white/60 py-2 px-4 rounded-lg text-sm hover:bg-white/20 transition-colors">
+                    Adjust
+                  </button>
+                </div>
+              </div>
+
+              {/* Step 3: Delivery */}
+              <div className="group relative bg-[#1a1a1a] rounded-xl p-6 border border-white/10 hover:border-white/30 transition-all duration-300">
+                <div className="absolute top-4 right-4 font-mono text-xs text-white/20">03</div>
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+                  <Check size={24} className="text-white/70" />
+                </div>
+                <h4 className="text-lg font-bold uppercase tracking-tight mb-3">Feature Ready</h4>
+                <p className="text-[#E6E6E1]/60 text-sm mb-6">Tested. Documented. Production-ready.</p>
+                <div className="flex items-center gap-2">
+                  <button className="flex-1 bg-green-500/20 text-green-400 py-2 px-4 rounded-lg text-sm font-medium hover:bg-green-500/30 transition-colors">
+                    Accept ✓
+                  </button>
+                  <button className="bg-white/10 text-white/60 py-2 px-4 rounded-lg text-sm hover:bg-white/20 transition-colors">
+                    Feedback
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-center text-[#E6E6E1]/40 text-sm mt-8">
+              That's it. We do the hard work. You stay in control.
+            </p>
           </div>
 
           {/* One Tier */}
