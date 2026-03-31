@@ -128,14 +128,14 @@ const AboutPage = () => {
       <section className="py-24 px-6 md:px-16 bg-black text-[#E6E6E1] rounded-xl mx-4 my-12">
         <div className="max-w-5xl mx-auto text-center">
           <p className="text-xl md:text-2xl text-[#E6E6E1]/70 font-medium mb-8">
-            You want results. Fast results.<br/>
-            We deliver production software — not&nbsp;experiments.
+            You want results. Fast&nbsp;results.<br/>
+            We make that happen through&nbsp;technology.
           </p>
           <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter mb-8">
             AI builds it. We&nbsp;engineer&nbsp;it.
           </h2>
           <p className="text-lg text-[#E6E6E1]/70 font-medium max-w-3xl mx-auto">
-            AI Development as a&nbsp;Service. We scope your project, build it with AI-powered development, and do our best work to keep your software in peak&nbsp;condition. Fixed&nbsp;price. Production-grade. Enterprise&nbsp;quality.
+            AI Development as a&nbsp;Service. We unify scope, build, and operations into one seamless&nbsp;experience. Fixed&nbsp;price. Production-grade. Software that&nbsp;ships.
           </p>
         </div>
       </section>
