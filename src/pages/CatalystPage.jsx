@@ -71,15 +71,15 @@ const CatalystPage = () => {
         </div>
 
         <div className="relative z-10 max-w-5xl">
-          <div className="hero-anim font-mono text-sm uppercase tracking-widest text-[#E6E6E1]/50 mb-4">8-12 Weeks</div>
+          <div className="hero-anim font-mono text-sm uppercase tracking-widest text-[#E6E6E1]/50 mb-4">AI Development as a Service</div>
           <h1 className="hero-anim text-6xl md:text-8xl lg:text-9xl font-black uppercase leading-none tracking-tighter mb-4">
             THE CATALYST
           </h1>
           <p className="hero-anim text-xl md:text-2xl text-[#E6E6E1]/80 max-w-3xl mb-6 font-medium leading-snug">
-            Your software. <strong className="text-[#E6E6E1]">Built.</strong>
+            Enterprise software. <strong className="text-[#E6E6E1]">Delivered.</strong>
           </p>
           <p className="hero-anim text-lg text-[#E6E6E1]/60 max-w-2xl mb-12 font-medium">
-            Tell us what you need. Watch it get built. Fixed price, enterprise quality, yours to keep. From kickoff to production in weeks — not quarters.
+            AI-powered development with human engineering oversight. Fixed price. Production-grade. Yours to keep.
           </p>
           <div className="hero-anim flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <MagneticButton
@@ -98,29 +98,39 @@ const CatalystPage = () => {
       {/* WHAT IS ADAAS */}
       <section className="py-24 px-6 md:px-16 bg-[#E6E6E1]">
         <div className="max-w-[1400px] mx-auto">
-          <div className="max-w-3xl mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">AI Development as a Service</h2>
-            <p className="text-xl text-black/80 font-medium leading-relaxed mb-6">
-              You describe what you need. We scope it, price it, and deliver it. Fixed cost. No surprises.
-            </p>
-            <p className="text-xl text-black/70 font-medium leading-relaxed">
-              We use AI-powered development workflows with human engineering oversight. The result: enterprise-grade software delivered in weeks, not months.
-            </p>
-          </div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">How It Works</h2>
+              <p className="text-xl text-black/80 font-medium leading-relaxed mb-6">
+                AI handles the heavy lifting. Engineers ensure it's done right. You get enterprise-grade software in weeks, not months.
+              </p>
+              <p className="text-xl text-black/70 font-medium leading-relaxed">
+                Every line is reviewed. Every feature is tested. Every deliverable is documented. This is engineering — accelerated.
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              { num: "80%+", label: "Test Coverage", desc: "Every deliverable" },
-              { num: "8-12", label: "Weeks", desc: "Typical timeline" },
-              { num: "100%", label: "Your Code", desc: "No lock-in" },
-              { num: "Fixed", label: "Price", desc: "Agreed upfront" }
-            ].map((stat, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 border-2 border-black text-center">
-                <div className="font-mono text-4xl font-bold mb-2">{stat.num}</div>
-                <div className="font-bold uppercase tracking-tight">{stat.label}</div>
-                <div className="text-sm text-black/60">{stat.desc}</div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-black text-[#E6E6E1] rounded-xl p-8">
+                <div className="text-5xl font-black mb-2">80%+</div>
+                <div className="font-bold uppercase tracking-tight text-lg">Test Coverage</div>
+                <div className="text-sm text-[#E6E6E1]/60 mt-2">No untested code ships</div>
               </div>
-            ))}
+              <div className="bg-white rounded-xl p-8 border-4 border-black">
+                <div className="text-5xl font-black mb-2">100%</div>
+                <div className="font-bold uppercase tracking-tight text-lg">Your Code</div>
+                <div className="text-sm text-black/60 mt-2">Perpetual licence included</div>
+              </div>
+              <div className="bg-white rounded-xl p-8 border-4 border-black">
+                <div className="text-5xl font-black mb-2">Fixed</div>
+                <div className="font-bold uppercase tracking-tight text-lg">Price</div>
+                <div className="text-sm text-black/60 mt-2">Agreed before we start</div>
+              </div>
+              <div className="bg-black text-[#E6E6E1] rounded-xl p-8">
+                <div className="text-5xl font-black mb-2">Weeks</div>
+                <div className="font-bold uppercase tracking-tight text-lg">Not Months</div>
+                <div className="text-sm text-[#E6E6E1]/60 mt-2">Kickoff to production</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
