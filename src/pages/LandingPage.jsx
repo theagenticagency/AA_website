@@ -195,7 +195,7 @@ const LandingPage = () => {
                 Before we build, we scope.
               </p>
               <p className="text-black/60 font-medium leading-relaxed mb-8">
-                What are you building? For who? Why? Which systems does it touch? We nail the context so the build goes fast. Two weeks. One scope document. Zero ambiguity.
+                What are you building? For who? Why? Which systems does it touch? We nail the context so the build goes fast. 1-2 weeks. One scope document. Zero ambiguity.
               </p>
               <Link to="/the-spark" className="inline-flex items-center gap-2 font-bold text-black hover:gap-3 transition-all">
                 Learn more <ArrowUpRight size={18} />
@@ -315,7 +315,7 @@ const LandingPage = () => {
             Ready to talk?
           </h2>
           <p className="cta-reveal text-lg text-black/60 font-medium mb-12 max-w-xl mx-auto">
-            Most projects start with The Spark — two weeks to nail the scope. From there, we build.
+            Most projects start with The Spark — 1-2 weeks to nail the scope. From there, we build.
           </p>
           <div className="cta-reveal">
             <MagneticButton

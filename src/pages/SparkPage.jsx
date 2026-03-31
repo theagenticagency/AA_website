@@ -14,12 +14,12 @@ const SparkPage = () => {
   const { openInquiry } = useInquiry();
 
   const sparkFAQs = [
-    { q: "How long does The Spark take?", a: "Typically 1-2 weeks depending on organizational complexity. We assess your infrastructure, governance requirements, and team readiness in parallel streams." },
-    { q: "What do we need to prepare?", a: "Ideally: scope documentation — project descriptions, process diagrams, use cases, feature specs, or user screens. Don't have these? No problem. The Spark includes AI Sync Sessions where we capture context directly from your stakeholders through structured conversations." },
-    { q: "Is this mandatory before The Catalyst?", a: "Strongly recommended. Organizations that skip onboarding often face delays during delivery. The Spark ensures a smooth handoff." },
-    { q: "What if we already have mature DevOps?", a: "Great — The Spark will be faster. We'll validate your setup, establish communication protocols, and align on governance. Even mature orgs benefit from explicit alignment." },
-    { q: "Who needs to be involved?", a: "Engineering lead, security/compliance stakeholder, and a business sponsor. We'll identify additional stakeholders during assessment." },
-    { q: "What's the output?", a: "A Readiness Report documenting infrastructure status, governance framework, communication protocols, and a clear handoff to The Catalyst delivery phase." }
+    { q: "How long does The Spark take?", a: "1-2 weeks depending on project complexity. Simpler projects scope faster. Complex enterprises with many integrations take the full duration." },
+    { q: "What do we need to prepare?", a: "Whatever you have — project descriptions, process diagrams, feature specs, screen mockups. Don't have documentation? No problem. Our AI Sync Sessions capture context directly from your stakeholders through structured conversations." },
+    { q: "Is The Spark mandatory before The Catalyst?", a: "Strongly recommended. Without proper scope and context, the build suffers. The Spark ensures we're building the right thing, the right way, from day one." },
+    { q: "What if we already know exactly what we want?", a: "Great — The Spark will be faster. We'll validate your specifications, map integrations, and lock the architecture. Even well-prepared teams benefit from explicit scope documentation." },
+    { q: "Who needs to be involved?", a: "Business sponsor who knows the 'why', domain experts who know the 'what', and technical stakeholders who know the 'where' and 'how'. We guide the sessions." },
+    { q: "What do we get at the end?", a: "A complete Development Scope: feature breakdown, screen specifications, technical architecture, integration map, fixed timeline, and fixed price. Everything needed to start The Catalyst immediately." }
   ];
 
   useEffect(() => {
@@ -328,9 +328,10 @@ const SparkPage = () => {
         <div className="max-w-[1400px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">What You Leave With</h2>
+              <div className="font-mono text-xs uppercase tracking-widest text-black/40 mb-4">The Valuable Assets</div>
+              <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">Stepping Stones for Success</h2>
               <p className="text-xl font-medium text-black/70 mb-8">
-                Not just alignment — a complete Development Scope ready for execution.
+                In 1-2 weeks, you gain the foundation for a successful project — and perhaps, a long-lasting partnership.
               </p>
 
               <div className="space-y-4">
@@ -361,7 +362,7 @@ const SparkPage = () => {
                 <p className="text-sm text-[#E6E6E1]/60 mb-6">Typical timeline:</p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
-                    <span className="font-mono text-xs bg-white/10 px-3 py-1 rounded">Week 1-2</span>
+                    <span className="font-mono text-xs bg-white/10 px-3 py-1 rounded">1-2 weeks</span>
                     <span className="font-medium">The Spark → Development Scope</span>
                   </div>
                   <div className="flex items-center gap-4">
