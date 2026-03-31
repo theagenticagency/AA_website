@@ -364,7 +364,7 @@ const CorePage = () => {
             Handover to Operations
           </h2>
           <p className="text-xl text-[#E6E6E1]/60 font-medium max-w-2xl mx-auto">
-            Development complete. Your software is live. Now it's about keeping the lights on — and that should be just as effortless.
+            Development complete. Your software is live. Now it's about keeping it in peak condition — and that should be just as effortless.
           </p>
         </div>
       </section>

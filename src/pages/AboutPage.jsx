@@ -24,7 +24,7 @@ const AboutPage = () => {
         "Led enterprise transformations across 200+ person programs",
         "Background in M&A (Deloitte) and startup founding (ChefsClub, exited)"
       ],
-      quote: "There's a gap between using AI tools and engineering with them systematically. We help teams close that gap."
+      quote: "There's a gap between AI generating code and AI engineering software. We close that gap — one project at a time."
     },
     {
       initials: "ME",
@@ -90,7 +90,7 @@ const AboutPage = () => {
     <div ref={pageRef}>
       <PageMeta
         title="About — Agentic Agency"
-        description="Practitioners at the forefront of agentic engineering. Meet the team behind hands-on workshops and transformation programs."
+        description="AI Development as a Service. Enterprise software built by AI, overseen by engineers. Meet the team."
         path="/about"
       />
       <OrganizationSchema />
@@ -109,21 +109,17 @@ const AboutPage = () => {
 
       {/* A. HERO SECTION */}
       <section className="relative h-[70dvh] w-full flex items-end pb-24 px-6 md:px-16 overflow-hidden bg-[#E6E6E1]">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2000"
-            alt="Workshop Tools"
-            className="w-full h-full object-cover opacity-20 mix-blend-multiply grayscale"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#E6E6E1] via-[#E6E6E1]/80 to-transparent"></div>
-        </div>
+        <div className="absolute inset-0 z-0" style={{
+          backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px)',
+          backgroundSize: '64px 64px'
+        }}></div>
 
         <div className="relative z-10 max-w-5xl">
           <h1 className="hero-anim text-6xl md:text-8xl lg:text-9xl font-black uppercase leading-none tracking-tighter mb-4 text-black">
             ABOUT US
           </h1>
           <p className="hero-anim text-xl md:text-2xl text-black/80 max-w-3xl font-medium leading-snug">
-            We help engineering teams master agentic AI — systematically.
+            We build enterprise software. AI does the heavy lifting. Engineers ensure it's done right.
           </p>
         </div>
       </section>
@@ -132,14 +128,14 @@ const AboutPage = () => {
       <section className="py-24 px-6 md:px-16 bg-black text-[#E6E6E1] rounded-xl mx-4 my-12">
         <div className="max-w-5xl mx-auto text-center">
           <p className="text-xl md:text-2xl text-[#E6E6E1]/70 font-medium mb-8">
-            Most teams use AI to write code faster.<br/>
-            Few have a methodology to engineer with it.
+            AI can generate code.<br/>
+            But generating code is not the same as engineering software.
           </p>
           <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter mb-8">
-            We close that gap.
+            We do both.
           </h2>
           <p className="text-lg text-[#E6E6E1]/70 font-medium max-w-3xl mx-auto">
-            Through hands-on workshops, embedded programs, and advisory partnerships, we transform how engineering teams work with AI — from ad-hoc prompting to production-grade agentic engineering.
+            AI Development as a Service. We scope your project, build it with AI-powered development, and do our best work to keep your software in peak condition. Fixed price. Production-grade. Enterprise quality.
           </p>
         </div>
       </section>
@@ -156,19 +152,19 @@ const AboutPage = () => {
             <div className="value-item bg-white rounded-xl p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <h3 className="text-2xl font-bold uppercase tracking-tight mb-4">Methodology over tools.</h3>
               <p className="text-black/70 font-medium">
-                Tools change every quarter. The discipline of working systematically with AI agents persists. We teach frameworks that outlast any single product.
+                Tools change every quarter. The discipline of engineering systematically with AI persists. Our process outlasts any single product.
               </p>
             </div>
             <div className="value-item bg-white rounded-xl p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-              <h3 className="text-2xl font-bold uppercase tracking-tight mb-4">Practice over theory.</h3>
+              <h3 className="text-2xl font-bold uppercase tracking-tight mb-4">Delivery over theory.</h3>
               <p className="text-black/70 font-medium">
-                Our programs are hands-on from hour one. Real code. Real challenges. Real results you can measure on Monday morning.
+                We ship production code, not slide decks. Real software. Real test coverage. Real documentation as a byproduct.
               </p>
             </div>
             <div className="value-item bg-white rounded-xl p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <h3 className="text-2xl font-bold uppercase tracking-tight mb-4">Results over credentials.</h3>
               <p className="text-black/70 font-medium">
-                We don't sell certifications. We help teams ship faster, with fewer defects, and with documentation as a byproduct. The work speaks for itself.
+                We don't sell certifications. We deliver working software. The work speaks for itself.
               </p>
             </div>
           </div>
@@ -180,7 +176,7 @@ const AboutPage = () => {
         <div className="max-w-[1400px] mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-6">The Team</h2>
           <p className="text-xl text-[#E6E6E1]/70 font-medium mb-16 max-w-2xl">
-            Enterprise transformation experience, AI product leadership, and technical depth. From hands-on workshops to strategic advisory, we meet you where you are.
+            Enterprise transformation experience, AI product leadership, and technical depth. We build software for companies who need it done right.
           </p>
 
           <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -245,7 +241,7 @@ const AboutPage = () => {
               We're not theorists. We build with these tools daily, encounter the edge cases, and know what actually works in production environments.
             </p>
             <p className="text-xl text-black font-bold">
-              You get that experience transferred directly to your team.
+              You get that experience applied directly to your software.
             </p>
           </div>
         </div>
@@ -260,16 +256,16 @@ const AboutPage = () => {
                 Based in Denmark
               </h2>
               <p className="text-lg text-[#E6E6E1]/70 font-medium mb-6 leading-relaxed">
-                We're a Danish company serving engineering teams across the Nordics and beyond.
+                We're a Danish company building software for enterprises across the Nordics and beyond.
               </p>
               <p className="text-lg text-[#E6E6E1]/70 font-medium leading-relaxed">
-                Our workshops run in-person. Our transformation programs include on-site days. When we say hands-on, we mean it.
+                Close enough for face-to-face when it matters. Remote-first for everything else.
               </p>
             </div>
             <div className="bg-[#111] rounded-xl p-8 border-4 border-white/20">
               <div className="font-mono text-xs uppercase tracking-wider text-[#E6E6E1]/50 mb-4">Location</div>
               <p className="text-2xl font-bold mb-2">Copenhagen, Denmark</p>
-              <p className="text-[#E6E6E1]/60 font-medium">Serving teams across the Nordics and Europe</p>
+              <p className="text-[#E6E6E1]/60 font-medium">Building for enterprises across the Nordics and Europe</p>
             </div>
           </div>
         </div>
@@ -281,7 +277,7 @@ const AboutPage = () => {
           <div className="bg-white rounded-xl p-12 md:p-16 border-4 border-black shadow-[16px_16px_0px_0px_rgba(0,0,0,1)]">
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-4">Get in Touch</h2>
             <p className="text-xl text-black/70 font-medium mb-8">
-              Ready to explore how agentic engineering could transform your team?
+              Have a project in mind? Let's talk about what you need built.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <MagneticButton
