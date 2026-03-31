@@ -223,68 +223,41 @@ const CorePage = () => {
                         {/* Expanded View */}
                         <div className={`overflow-hidden transition-all duration-500 ease-out ${expandedItem === 'A1' ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
                           <div className="bg-[#111] text-[#E6E6E1] p-6">
-                            {/* PiP Frame - Screen Preview with Embedded Mockup */}
+                            {/* PiP Frame - Real Screenshot with Privacy Blur */}
                             <div className="bg-black rounded-xl overflow-hidden mb-6 border border-white/10">
                               <div className="bg-black/50 px-4 py-2 border-b border-white/10 flex items-center justify-between">
-                                <span className="text-xs text-white/50 font-mono">Preview: Dashboard Filters</span>
+                                <span className="text-xs text-white/50 font-mono">Preview: Invoice Discrepancy Queue</span>
                                 <div className="flex items-center gap-2">
                                   <span className="w-2 h-2 rounded-full bg-red-500"></span>
                                   <span className="w-2 h-2 rounded-full bg-yellow-500"></span>
                                   <span className="w-2 h-2 rounded-full bg-green-500"></span>
                                 </div>
                               </div>
-                              {/* Embedded Dashboard Mockup */}
-                              <div className="bg-[#0a0a0a] p-4 relative">
-                                {/* Mini Dashboard UI */}
-                                <div className="bg-[#1a1a1a] rounded-lg border border-white/5 overflow-hidden">
-                                  {/* Mini Nav */}
-                                  <div className="bg-[#222] px-3 py-2 border-b border-white/5 flex items-center gap-2">
-                                    <div className="w-2 h-2 rounded-full bg-amber-500"></div>
-                                    <span className="text-[10px] text-white/60 font-mono">Procurement Dashboard</span>
-                                  </div>
-                                  {/* Filter Bar - The New Feature */}
-                                  <div className="p-3 border-b border-white/5 bg-[#1d1d1d]">
-                                    <div className="flex items-center gap-2 mb-2">
-                                      <span className="text-[9px] text-white/40 uppercase tracking-wider">New Filter Controls</span>
-                                      <span className="px-1.5 py-0.5 bg-green-500/20 text-green-400 text-[8px] rounded font-bold">ADDED</span>
-                                    </div>
-                                    <div className="flex gap-2">
-                                      <div className="flex-1 bg-white/5 rounded px-2 py-1.5 border border-amber-500/50">
-                                        <span className="text-[10px] text-white/70">Priority: </span>
-                                        <span className="text-[10px] text-amber-400 font-medium">High → Low</span>
-                                      </div>
-                                      <div className="bg-white/5 rounded px-2 py-1.5 border border-white/10">
-                                        <span className="text-[10px] text-white/70">Status: </span>
-                                        <span className="text-[10px] text-white/50">All</span>
-                                      </div>
-                                      <div className="bg-white/5 rounded px-2 py-1.5 border border-white/10">
-                                        <span className="text-[10px] text-white/70">Date ↓</span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  {/* Mini Table */}
-                                  <div className="p-3">
-                                    <div className="space-y-1.5">
-                                      <div className="flex items-center gap-2 bg-amber-500/10 rounded px-2 py-1.5 border-l-2 border-amber-500">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                                        <span className="text-[10px] text-white/80 flex-1">PO-2024-0847</span>
-                                        <span className="text-[9px] text-amber-400">Urgent</span>
-                                      </div>
-                                      <div className="flex items-center gap-2 bg-white/5 rounded px-2 py-1.5">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-white/30"></span>
-                                        <span className="text-[10px] text-white/60 flex-1">PO-2024-0846</span>
-                                        <span className="text-[9px] text-white/40">Normal</span>
-                                      </div>
-                                      <div className="flex items-center gap-2 bg-white/5 rounded px-2 py-1.5">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-white/30"></span>
-                                        <span className="text-[10px] text-white/60 flex-1">PO-2024-0845</span>
-                                        <span className="text-[9px] text-white/40">Normal</span>
-                                      </div>
-                                    </div>
-                                  </div>
+                              {/* Real Screenshot with Creative Censoring */}
+                              <div className="relative overflow-hidden">
+                                <img
+                                  src="/preview-invoices-blurred.png"
+                                  alt="Dashboard preview"
+                                  className="w-full h-auto"
+                                />
+                                {/* Top nav blur - hide brand */}
+                                <div className="absolute top-0 left-0 right-0 h-[4%] backdrop-blur-xl bg-gradient-to-b from-black/90 to-transparent"></div>
+                                {/* Brand area heavy blur */}
+                                <div className="absolute top-0 left-0 w-[15%] h-[5%] backdrop-blur-2xl bg-black/80"></div>
+                                {/* Company names column blur - left side */}
+                                <div className="absolute top-[35%] left-[17%] w-[12%] h-[55%] backdrop-blur-md bg-white/5"></div>
+                                {/* Footer blur */}
+                                <div className="absolute bottom-0 left-0 right-0 h-[4%] backdrop-blur-xl bg-gradient-to-t from-black/90 to-transparent"></div>
+                                {/* Subtle vignette */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10 pointer-events-none"></div>
+                                {/* Feature highlight glow */}
+                                <div className="absolute top-[28%] left-[3%] right-[3%] h-[8%] border-2 border-amber-500/50 rounded-lg shadow-[0_0_20px_rgba(245,158,11,0.3)] pointer-events-none"></div>
+                                {/* "NEW" badge overlay */}
+                                <div className="absolute top-[26%] right-[5%] bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded shadow-lg">
+                                  QUICK REVIEW
                                 </div>
-                                {/* PiP indicator */}
-                                <div className="absolute bottom-6 right-6 bg-black/90 rounded-lg px-3 py-1.5 border border-white/20 shadow-lg">
+                                {/* Live indicator */}
+                                <div className="absolute bottom-[8%] right-[3%] bg-black/90 backdrop-blur-sm rounded-lg px-3 py-1.5 border border-white/20 shadow-lg">
                                   <span className="text-[10px] text-green-400 font-mono uppercase tracking-wider flex items-center gap-1.5">
                                     <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
                                     Live Preview
