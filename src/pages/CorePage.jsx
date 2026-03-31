@@ -116,133 +116,198 @@ const CorePage = () => {
         </div>
       </section>
 
-      {/* YOUR MORNING — THE HOOK */}
+      {/* COMMAND CENTER DEMO */}
       <section id="morning-demo" className="py-24 px-6 md:px-16 bg-[#E6E6E1] overflow-hidden">
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-16">
             <div className="font-mono text-xs uppercase tracking-widest text-black/40 mb-4">The Experience</div>
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter text-black mb-6">
-              This Is What It Feels Like
+              This Is What It Looks Like
             </h2>
             <p className="text-xl text-black/70 font-medium max-w-2xl mx-auto">
-              Coffee in hand. Three items waiting. Tap, tap, tap. Done before it gets cold.
+              Real-time visibility. Feedback that flows. Reviews that take seconds.
             </p>
           </div>
 
-          {/* Demo Window */}
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-[#0a0a0a] rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
-              {/* Browser Chrome */}
-              <div className="flex items-center gap-3 px-5 py-4 bg-[#141414] border-b border-white/10">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+          {/* Command Center Demo */}
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-gray-100 rounded-2xl overflow-hidden shadow-2xl border border-black/10">
+              {/* Nav Bar */}
+              <div className="bg-black text-[#E6E6E1] px-6 py-3 flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <span className="font-bold text-sm">{'>>'} COMMAND CENTER</span>
+                  <span className="text-xs text-[#E6E6E1]/40">|</span>
+                  <span className="text-xs text-[#E6E6E1]/50">Your Project</span>
                 </div>
-                <div className="flex-1 flex justify-center">
-                  <div className="bg-[#0a0a0a] rounded-md px-4 py-1.5 text-xs text-[#E6E6E1]/50 font-mono">
-                    core.agenticagency.dev
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2 bg-white/10 rounded-lg px-3 py-1">
+                    <span className="text-xs text-[#E6E6E1]/50">View:</span>
+                    <span className="text-xs font-medium">Business</span>
+                  </div>
+                  <div className="flex gap-1">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    <span className="text-xs text-green-400">Connected</span>
                   </div>
                 </div>
-                <div className="font-mono text-xs text-[#E6E6E1]/30">08:47</div>
               </div>
 
-              {/* Dashboard Content */}
-              <div className="p-8">
-                {/* Header */}
-                <div className="flex items-center justify-between mb-8">
-                  <div>
-                    <div className="text-sm text-[#E6E6E1]/50 mb-1">Good morning</div>
-                    <div className="text-2xl font-bold">3 items ready for review</div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-green-500 morning-pulse"></div>
-                    <span className="font-mono text-xs text-[#E6E6E1]/50">ALL SYSTEMS NOMINAL</span>
+              <div className="p-6 grid lg:grid-cols-3 gap-6">
+                {/* Left: Feedback Queue */}
+                <div className="lg:col-span-2 space-y-4">
+                  <div className="bg-white rounded-xl border border-black/10 overflow-hidden">
+                    <div className="px-4 py-3 border-b border-black/5 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <h4 className="font-semibold text-sm">Feedback Queue</h4>
+                        <span className="text-xs text-black/40">Your reviews</span>
+                      </div>
+                      <span className="px-2 py-0.5 bg-black text-[#E6E6E1] text-xs rounded-full font-bold">3 pending</span>
+                    </div>
+
+                    <div className="divide-y divide-black/5">
+                      {/* Feedback Item 1 */}
+                      <div className="morning-card p-4 border-l-4 border-blue-500 hover:bg-black/[0.02] transition-colors cursor-pointer group">
+                        <div className="flex items-start gap-4">
+                          <span className="w-8 h-8 bg-black/5 text-black text-xs font-bold rounded flex items-center justify-center shrink-0">A1</span>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="font-medium text-sm">Dashboard Filters</span>
+                              <span className="text-xs text-black/40">10 min ago</span>
+                              <span className="px-1.5 py-0.5 bg-blue-500/10 text-blue-600 text-[10px] rounded font-medium">Screen Spec</span>
+                            </div>
+                            <p className="text-sm text-black/70">"Priority filter added as requested. Sort by urgency enabled."</p>
+                            <div className="text-xs text-black/40 mt-1">Your preferences pre-applied</div>
+                          </div>
+                          <button className="px-3 py-1.5 rounded-lg bg-green-500 text-white font-bold text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                            Looks Good →
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Feedback Item 2 */}
+                      <div className="morning-card p-4 border-l-4 border-purple-500 hover:bg-black/[0.02] transition-colors cursor-pointer group">
+                        <div className="flex items-start gap-4">
+                          <span className="w-8 h-8 bg-black/5 text-black text-xs font-bold rounded flex items-center justify-center shrink-0">B4</span>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="font-medium text-sm">Invoice Module</span>
+                              <span className="text-xs text-black/40">2 hrs ago</span>
+                              <span className="px-1.5 py-0.5 bg-purple-500/10 text-purple-600 text-[10px] rounded font-medium">Look & Feel</span>
+                            </div>
+                            <p className="text-sm text-black/70">"Colour scheme aligned with your brand guidelines."</p>
+                            <div className="text-xs text-black/40 mt-1">Based on your previous approvals</div>
+                          </div>
+                          <button className="px-3 py-1.5 rounded-lg bg-green-500 text-white font-bold text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                            Looks Good →
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Feedback Item 3 */}
+                      <div className="morning-card p-4 border-l-4 border-green-500 hover:bg-black/[0.02] transition-colors cursor-pointer group">
+                        <div className="flex items-start gap-4">
+                          <span className="w-8 h-8 bg-black/5 text-black text-xs font-bold rounded flex items-center justify-center shrink-0">D2</span>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="font-medium text-sm">Reporting Feature</span>
+                              <span className="text-xs text-black/40">1 day ago</span>
+                              <span className="px-1.5 py-0.5 bg-green-500/10 text-green-600 text-[10px] rounded font-medium">Delivery</span>
+                            </div>
+                            <p className="text-sm text-black/70">"Feature complete. 94% test coverage. Ready for sign-off."</p>
+                            <div className="text-xs text-black/40 mt-1">All acceptance criteria met</div>
+                          </div>
+                          <button className="px-3 py-1.5 rounded-lg bg-green-500 text-white font-bold text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                            Accept →
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Resolved Item */}
+                      <div className="p-4 bg-black/[0.02]">
+                        <div className="flex items-start gap-4">
+                          <span className="w-8 h-8 bg-green-100 text-green-700 text-xs font-bold rounded flex items-center justify-center shrink-0">C1</span>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="font-medium text-sm text-black/50">API Integration</span>
+                              <span className="text-xs text-black/30">2 days ago</span>
+                            </div>
+                            <p className="text-sm text-black/50">"Endpoint validation added per your feedback."</p>
+                            <div className="flex items-center gap-2 mt-2">
+                              <span className="px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded font-medium">Resolved</span>
+                              <span className="text-xs text-black/30">Commit abc123</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Review Cards */}
-                <div className="space-y-4 mb-8">
-                  {/* Card 1 - Screen Spec */}
-                  <div className="morning-card bg-[#1a1a1a] rounded-xl p-5 border border-white/5 hover:border-white/20 transition-all cursor-pointer group">
-                    <div className="flex items-start justify-between">
-                      <div className="flex gap-4">
-                        <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-blue-600/20 flex items-center justify-center">
-                          <Monitor size={20} className="text-blue-400" />
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className="font-bold">Screen Specification</span>
-                            <span className="px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-bold uppercase">New</span>
-                          </div>
-                          <div className="text-sm text-[#E6E6E1]/60">Supplier Dashboard v2 — 4 screens ready</div>
-                          <div className="text-xs text-[#E6E6E1]/40 mt-1">Your filter preferences pre-applied</div>
-                        </div>
+                {/* Right: Stats & Activity */}
+                <div className="space-y-4">
+                  {/* Change Tracker */}
+                  <div className="bg-white rounded-xl border border-black/10 p-4">
+                    <h4 className="font-semibold text-sm mb-4">Change Tracker</h4>
+                    <div className="grid grid-cols-3 gap-2 mb-4">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-black">12</div>
+                        <div className="text-[10px] text-black/40 uppercase">Total</div>
                       </div>
-                      <button className="px-4 py-2 rounded-lg bg-green-500 text-black font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                        Looks Good →
-                      </button>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-blue-600">3</div>
+                        <div className="text-[10px] text-black/40 uppercase">In Progress</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-green-600">9</div>
+                        <div className="text-[10px] text-black/40 uppercase">Resolved</div>
+                      </div>
+                    </div>
+                    <div className="h-2 bg-black/10 rounded-full overflow-hidden">
+                      <div className="h-full bg-green-500 rounded-full" style={{ width: '75%' }}></div>
                     </div>
                   </div>
 
-                  {/* Card 2 - Look & Feel */}
-                  <div className="morning-card bg-[#1a1a1a] rounded-xl p-5 border border-white/5 hover:border-white/20 transition-all cursor-pointer group">
-                    <div className="flex items-start justify-between">
-                      <div className="flex gap-4">
-                        <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-purple-600/20 flex items-center justify-center">
-                          <Eye size={20} className="text-purple-400" />
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className="font-bold">Look & Feel Review</span>
-                            <span className="px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-400 text-[10px] font-bold uppercase">Visual</span>
-                          </div>
-                          <div className="text-sm text-[#E6E6E1]/60">Invoice module colour scheme — matches your brand</div>
-                          <div className="text-xs text-[#E6E6E1]/40 mt-1">Based on your previous approvals</div>
-                        </div>
+                  {/* Activity Feed */}
+                  <div className="bg-white rounded-xl border border-black/10 overflow-hidden">
+                    <div className="px-4 py-3 border-b border-black/5 flex items-center justify-between">
+                      <h4 className="font-semibold text-sm">Activity Feed</h4>
+                      <div className="flex items-center gap-1">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                        <span className="text-[10px] text-green-600">Live</span>
                       </div>
-                      <button className="px-4 py-2 rounded-lg bg-green-500 text-black font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                        Looks Good →
-                      </button>
+                    </div>
+                    <div className="divide-y divide-black/5 text-xs">
+                      {[
+                        { time: "10:34", type: "feedback", text: "New spec ready for review" },
+                        { time: "10:32", type: "code", text: "Dashboard filters implemented" },
+                        { time: "10:28", type: "test", text: "287 tests passing (100%)" },
+                        { time: "09:45", type: "approved", text: "Invoice module approved" }
+                      ].map((item, i) => (
+                        <div key={i} className="morning-stat px-4 py-2 flex items-center gap-3">
+                          <span className="text-black/30 w-10 font-mono">{item.time}</span>
+                          <span className={`px-1.5 py-0.5 rounded text-[9px] font-medium ${
+                            item.type === 'feedback' ? 'bg-blue-100 text-blue-700' :
+                            item.type === 'approved' ? 'bg-green-100 text-green-700' :
+                            item.type === 'test' ? 'bg-purple-100 text-purple-700' :
+                            'bg-black/5 text-black/60'
+                          }`}>{item.type}</span>
+                          <span className="text-black/70 truncate">{item.text}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Card 3 - Acceptance */}
-                  <div className="morning-card bg-[#1a1a1a] rounded-xl p-5 border border-white/5 hover:border-white/20 transition-all cursor-pointer group">
-                    <div className="flex items-start justify-between">
-                      <div className="flex gap-4">
-                        <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-green-500/20 to-green-600/20 flex items-center justify-center">
-                          <Check size={20} className="text-green-400" />
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className="font-bold">Delivery Acceptance</span>
-                            <span className="px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 text-[10px] font-bold uppercase">Ready</span>
-                          </div>
-                          <div className="text-sm text-[#E6E6E1]/60">PR-List feature complete — 94% test coverage</div>
-                          <div className="text-xs text-[#E6E6E1]/40 mt-1">All acceptance criteria met</div>
-                        </div>
-                      </div>
-                      <button className="px-4 py-2 rounded-lg bg-green-500 text-black font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                        Accept →
-                      </button>
-                    </div>
+                  {/* Response Time */}
+                  <div className="bg-black text-[#E6E6E1] rounded-xl p-4">
+                    <div className="text-[10px] uppercase tracking-wider text-[#E6E6E1]/50 mb-1">Avg Response</div>
+                    <div className="text-3xl font-bold">1.5 hrs</div>
+                    <div className="text-xs text-[#E6E6E1]/50 mt-1">Same-day turnaround</div>
                   </div>
-                </div>
-
-                {/* Bottom Stats */}
-                <div className="grid grid-cols-4 gap-4">
-                  {[
-                    { label: "Pending Review", value: "3" },
-                    { label: "Approved This Week", value: "12" },
-                    { label: "Deliveries Accepted", value: "4" },
-                    { label: "Avg Response", value: "1.5 hrs" }
-                  ].map((stat, i) => (
-                    <div key={i} className="morning-stat bg-[#141414] rounded-lg p-4 text-center">
-                      <div className="font-mono text-xl font-bold text-[#E6E6E1]">{stat.value}</div>
-                      <div className="text-[10px] text-[#E6E6E1]/40 uppercase tracking-wider">{stat.label}</div>
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>
@@ -250,7 +315,7 @@ const CorePage = () => {
             {/* Caption */}
             <div className="text-center mt-8">
               <p className="text-black/50 text-sm italic">
-                "I actually look forward to checking in. It takes two minutes."
+                "Three taps. Done before your coffee gets cold."
               </p>
             </div>
           </div>
