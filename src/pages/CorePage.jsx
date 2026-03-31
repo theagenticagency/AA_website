@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, Monitor, Activity, Shield, Clock, Bell, BarChart3, Check, Eye, Zap } from 'lucide-react';
-import { MagneticButton } from '../components/common';
+import { MagneticButton, FloatingShapes, GlowOrb, AnimatedGrid } from '../components/common';
 import { ProductLadderSection, FAQSection } from '../components/sections';
 import { PageMeta, BreadcrumbSchema } from '../components/seo';
 import { useInquiry } from '../context/InquiryContext';
@@ -24,26 +24,68 @@ const CorePage = () => {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
+      // Enhanced hero animation
       gsap.fromTo('.hero-anim',
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, stagger: 0.08, ease: 'power3.out', delay: 0.2 }
+        { y: 60, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.4, stagger: 0.1, ease: 'power4.out', delay: 0.3 }
       );
 
-      gsap.fromTo('.feature-card',
-        { y: 40, opacity: 0 },
-        {
-          y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power3.out',
-          scrollTrigger: { trigger: '#features-section', start: 'top 70%' }
-        }
-      );
+      // Floating glow pulse
+      gsap.to('.glow-pulse', {
+        scale: 1.15,
+        opacity: 0.7,
+        duration: 5,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true
+      });
 
+      // Dashboard live indicator pulse
+      gsap.to('.live-indicator', {
+        scale: 1.3,
+        opacity: 0.5,
+        duration: 1,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true
+      });
+
+      // Dashboard elements cascade in
       gsap.fromTo('.dashboard-element',
-        { scale: 0.95, opacity: 0 },
+        { scale: 0.9, opacity: 0, y: 20 },
         {
-          scale: 1, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out',
-          scrollTrigger: { trigger: '#dashboard-section', start: 'top 70%' }
+          scale: 1, opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out',
+          scrollTrigger: { trigger: '#dashboard-section', start: 'top 65%' }
         }
       );
+
+      // Feature cards with 3D effect
+      gsap.fromTo('.feature-card',
+        { y: 50, opacity: 0, rotateX: 8 },
+        {
+          y: 0, opacity: 1, rotateX: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out',
+          scrollTrigger: { trigger: '#features-section', start: 'top 65%' }
+        }
+      );
+
+      // Tier cards stagger
+      gsap.fromTo('.tier-card',
+        { y: 40, opacity: 0, scale: 0.98 },
+        {
+          y: 0, opacity: 1, scale: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out',
+          scrollTrigger: { trigger: '.tier-card', start: 'top 70%' }
+        }
+      );
+
+      // Command center info slide in
+      gsap.fromTo('.info-slide',
+        { x: -30, opacity: 0 },
+        {
+          x: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out',
+          scrollTrigger: { trigger: '.info-slide', start: 'top 70%' }
+        }
+      );
+
     }, pageRef);
 
     return () => ctx.revert();
@@ -63,14 +105,16 @@ const CorePage = () => {
 
       {/* HERO */}
       <section className="relative h-[100dvh] w-full flex items-end pb-24 px-6 md:px-16 overflow-hidden bg-[#111] text-[#E6E6E1]">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
-            backgroundSize: '64px 64px'
-          }}></div>
-          {/* Subtle glow effect */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#E6E6E1]/5 rounded-full blur-[200px]"></div>
-        </div>
+        {/* Floating shapes and grid */}
+        <FloatingShapes variant="dark" />
+        <AnimatedGrid variant="dark" className="opacity-40" />
+
+        {/* Animated glow */}
+        <div className="glow-pulse absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#E6E6E1]/5 rounded-full blur-[200px]"></div>
+
+        {/* Corner accents */}
+        <div className="absolute top-8 left-8 w-20 h-20 border-l border-t border-white/10"></div>
+        <div className="absolute top-8 right-8 w-20 h-20 border-r border-t border-white/10"></div>
 
         <div className="relative z-10 max-w-5xl">
           <div className="hero-anim font-mono text-sm uppercase tracking-widest text-[#E6E6E1]/50 mb-4">Ongoing</div>
@@ -98,8 +142,10 @@ const CorePage = () => {
       </section>
 
       {/* WHAT IS THE CORE */}
-      <section className="py-24 px-6 md:px-16 bg-[#E6E6E1]">
-        <div className="max-w-[1400px] mx-auto">
+      <section className="relative py-24 px-6 md:px-16 bg-[#E6E6E1] overflow-hidden">
+        <FloatingShapes variant="light" />
+
+        <div className="relative z-10 max-w-[1400px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-8">The Command Center</h2>
@@ -126,13 +172,13 @@ const CorePage = () => {
             </div>
 
             {/* Dashboard Preview */}
-            <div id="dashboard-section" className="bg-[#111] rounded-xl p-6 border border-white/10">
+            <div id="dashboard-section" className="bg-[#111] rounded-xl p-6 border border-white/10 shadow-[0_0_60px_rgba(0,0,0,0.3)]">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                  <div className="live-indicator w-3 h-3 rounded-full bg-green-500"></div>
                   <span className="font-mono text-sm text-[#E6E6E1]/70">COMMAND CENTER</span>
                 </div>
-                <span className="font-mono text-xs text-[#E6E6E1]/50">LIVE</span>
+                <span className="font-mono text-xs text-[#E6E6E1]/50 bg-white/5 px-2 py-1 rounded">LIVE</span>
               </div>
 
               <div className="grid grid-cols-3 gap-4 mb-6">
@@ -176,8 +222,11 @@ const CorePage = () => {
       </section>
 
       {/* FEATURES */}
-      <section id="features-section" className="py-24 px-6 md:px-16 bg-black text-[#E6E6E1]">
-        <div className="max-w-[1400px] mx-auto">
+      <section id="features-section" className="relative py-24 px-6 md:px-16 bg-black text-[#E6E6E1] overflow-hidden">
+        <GlowOrb color="rgba(230, 230, 225, 0.04)" size={500} position="topRight" blur={150} />
+        <AnimatedGrid variant="dark" className="opacity-20" />
+
+        <div className="relative z-10 max-w-[1400px] mx-auto">
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-4">What You Get</h2>
             <p className="text-xl font-medium text-[#E6E6E1]/70 max-w-2xl">Operational visibility and control, backed by SLA commitments.</p>
@@ -227,8 +276,10 @@ const CorePage = () => {
       </section>
 
       {/* SLA TIERS */}
-      <section className="py-24 px-6 md:px-16 bg-[#E6E6E1]">
-        <div className="max-w-[1400px] mx-auto">
+      <section className="relative py-24 px-6 md:px-16 bg-[#E6E6E1] overflow-hidden">
+        <FloatingShapes variant="light" />
+
+        <div className="relative z-10 max-w-[1400px] mx-auto">
           <div className="mb-16 text-center">
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-4">SLA Tiers</h2>
             <p className="text-xl font-medium text-black/70 max-w-2xl mx-auto">Choose the level of support that matches your operational needs.</p>
