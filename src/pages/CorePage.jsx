@@ -223,7 +223,7 @@ const CorePage = () => {
                         {/* Expanded View */}
                         <div className={`overflow-hidden transition-all duration-500 ease-out ${expandedItem === 'A1' ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
                           <div className="bg-[#111] text-[#E6E6E1] p-6">
-                            {/* PiP Frame - Screen Preview */}
+                            {/* PiP Frame - Screen Preview with Embedded Mockup */}
                             <div className="bg-black rounded-xl overflow-hidden mb-6 border border-white/10">
                               <div className="bg-black/50 px-4 py-2 border-b border-white/10 flex items-center justify-between">
                                 <span className="text-xs text-white/50 font-mono">Preview: Dashboard Filters</span>
@@ -233,17 +233,62 @@ const CorePage = () => {
                                   <span className="w-2 h-2 rounded-full bg-green-500"></span>
                                 </div>
                               </div>
-                              <div className="aspect-video bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] flex items-center justify-center relative">
-                                {/* Placeholder for screen preview */}
-                                <div className="text-center">
-                                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4 hover:bg-white/20 transition-colors cursor-pointer">
-                                    <Play size={24} className="text-white/70 ml-1" />
+                              {/* Embedded Dashboard Mockup */}
+                              <div className="bg-[#0a0a0a] p-4 relative">
+                                {/* Mini Dashboard UI */}
+                                <div className="bg-[#1a1a1a] rounded-lg border border-white/5 overflow-hidden">
+                                  {/* Mini Nav */}
+                                  <div className="bg-[#222] px-3 py-2 border-b border-white/5 flex items-center gap-2">
+                                    <div className="w-2 h-2 rounded-full bg-amber-500"></div>
+                                    <span className="text-[10px] text-white/60 font-mono">Procurement Dashboard</span>
                                   </div>
-                                  <p className="text-white/40 text-sm">Click to preview changes</p>
+                                  {/* Filter Bar - The New Feature */}
+                                  <div className="p-3 border-b border-white/5 bg-[#1d1d1d]">
+                                    <div className="flex items-center gap-2 mb-2">
+                                      <span className="text-[9px] text-white/40 uppercase tracking-wider">New Filter Controls</span>
+                                      <span className="px-1.5 py-0.5 bg-green-500/20 text-green-400 text-[8px] rounded font-bold">ADDED</span>
+                                    </div>
+                                    <div className="flex gap-2">
+                                      <div className="flex-1 bg-white/5 rounded px-2 py-1.5 border border-amber-500/50">
+                                        <span className="text-[10px] text-white/70">Priority: </span>
+                                        <span className="text-[10px] text-amber-400 font-medium">High → Low</span>
+                                      </div>
+                                      <div className="bg-white/5 rounded px-2 py-1.5 border border-white/10">
+                                        <span className="text-[10px] text-white/70">Status: </span>
+                                        <span className="text-[10px] text-white/50">All</span>
+                                      </div>
+                                      <div className="bg-white/5 rounded px-2 py-1.5 border border-white/10">
+                                        <span className="text-[10px] text-white/70">Date ↓</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  {/* Mini Table */}
+                                  <div className="p-3">
+                                    <div className="space-y-1.5">
+                                      <div className="flex items-center gap-2 bg-amber-500/10 rounded px-2 py-1.5 border-l-2 border-amber-500">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                        <span className="text-[10px] text-white/80 flex-1">PO-2024-0847</span>
+                                        <span className="text-[9px] text-amber-400">Urgent</span>
+                                      </div>
+                                      <div className="flex items-center gap-2 bg-white/5 rounded px-2 py-1.5">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-white/30"></span>
+                                        <span className="text-[10px] text-white/60 flex-1">PO-2024-0846</span>
+                                        <span className="text-[9px] text-white/40">Normal</span>
+                                      </div>
+                                      <div className="flex items-center gap-2 bg-white/5 rounded px-2 py-1.5">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-white/30"></span>
+                                        <span className="text-[10px] text-white/60 flex-1">PO-2024-0845</span>
+                                        <span className="text-[9px] text-white/40">Normal</span>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                                 {/* PiP indicator */}
-                                <div className="absolute bottom-4 right-4 bg-black/80 rounded-lg px-3 py-1.5 border border-white/10">
-                                  <span className="text-[10px] text-white/50 font-mono uppercase tracking-wider">Live Preview</span>
+                                <div className="absolute bottom-6 right-6 bg-black/90 rounded-lg px-3 py-1.5 border border-white/20 shadow-lg">
+                                  <span className="text-[10px] text-green-400 font-mono uppercase tracking-wider flex items-center gap-1.5">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                                    Live Preview
+                                  </span>
                                 </div>
                               </div>
                             </div>
