@@ -102,31 +102,34 @@ She brings the perspective of someone who has shipped at massive scale, navigati
   {
     slug: "anton-gersvang-golles",
     name: "Anton Gersvang Golles",
-    title: "Software Engineer",
-    organisation: "",
+    title: "AI Lead",
+    organisation: "Simply.TV",
     location: "Denmark",
-    pedigree: "Individual Contributor · Denmark",
+    pedigree: "Simply.TV · Halfspace/Accenture · University of Copenhagen",
     portrait: "/practitioners/anton.jpg",
     linkedInUrl: "https://www.linkedin.com/in/antongersvang/",
     reelUrl: null,
-    tagline: "Hands-on agentic engineering from the trenches",
-    bio: `Anton represents the individual contributor perspective in the practitioners series — engineers in the trenches who are actually building with these tools every day. Not managing, not strategising, but shipping.
+    carouselUrl: null,
+    articleSlug: "anton-gersvang-golles",
+    tagline: "Comprehension is compression. Compression is comprehension.",
+    bio: `Anton is a 26-year-old computational physicist running the AI function at Simply.TV — the Danish B2B firm that supplies TV metadata to operators in roughly sixty countries. His company has just crossed a quietly historic threshold: 99-point-x-percent accuracy, on enough of its features, that the editors have started, for real, to be replaced by software he wrote.
 
-His experience offers a ground-level view of what works, what doesn't, and what the daily reality of agentic engineering actually looks like. The tools, the workflows, the frustrations, and the breakthroughs.`,
+Before Simply.TV, Anton was at Halfspace (acquired by Accenture), advising Nordic enterprises on AI strategy. His master's thesis at University of Copenhagen was on text-to-motion generation. But the defining moment came earlier: a third-year physics project where he met the autoencoder and realized that comprehension and compression are the same thing.`,
     credentials: [
-      "Software engineer building with AI-assisted tools",
-      "Hands-on practitioner of agentic workflows",
-      "Focus on practical implementation over theory"
+      "AI Lead at Simply.TV (450 employees, 60 countries)",
+      "Former consultant at Halfspace/Accenture Nordic AI practice",
+      "MSc Computational Physics, University of Copenhagen",
+      "Rokoko motion-capture research"
     ],
     topics: [
-      "Day-to-day agentic engineering",
-      "Tool selection and workflows",
-      "Practical AI integration",
-      "Individual contributor perspective"
+      "Cascade architectures",
+      "Production AI at scale",
+      "The 99.x% accuracy problem",
+      "Compression as cognition"
     ],
-    pullQuote: "Every week there's a new tool, a new repo, a new model. The skill isn't chasing everything — it's knowing what actually helps you ship.",
-    interviewTeaser: "On the reality of building with AI tools daily, cutting through the hype, and what individual contributors need to know.",
-    publishedAt: "2024-05-06",
+    pullQuote: "Comprehension is compression. Compression is comprehension. The two are the same thing.",
+    interviewTeaser: "On automating metadata editors, why 95% accuracy isn't good enough, the agent he named Dream, and why the next paradigm is computer use.",
+    publishedAt: "2026-04-28",
     episode: 4
   }
 ];

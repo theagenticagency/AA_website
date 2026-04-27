@@ -1,9 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, Suspense, lazy } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ArrowLeft, ArrowUpRight, Linkedin, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import { PageMeta, BreadcrumbSchema } from '../components/seo';
 import { getPractitionerBySlug, practitioners } from '../data/practitioners';
+import ArticleReader from '../components/ArticleReader';
+
+// Dynamic article imports
+const articleModules = {
+  'anton-gersvang-golles': () => import('../data/articles/anton-gersvang-golles').then(m => m.article)
+};
 
 const TOTAL_SLIDES = 10;
 
@@ -120,6 +126,7 @@ const PractitionerPage = () => {
   const { slug } = useParams();
   const pageRef = useRef(null);
   const practitioner = getPractitionerBySlug(slug);
+  const [article, setArticle] = useState(null);
 
   useEffect(() => {
     if (!practitioner) return;
@@ -132,6 +139,13 @@ const PractitionerPage = () => {
     }, pageRef);
 
     return () => ctx.revert();
+  }, [practitioner]);
+
+  // Load article if available
+  useEffect(() => {
+    if (practitioner?.articleSlug && articleModules[practitioner.articleSlug]) {
+      articleModules[practitioner.articleSlug]().then(setArticle);
+    }
   }, [practitioner]);
 
   if (!practitioner) {
@@ -280,31 +294,35 @@ const PractitionerPage = () => {
         </div>
       </section>
 
-      {/* LONG-FORM INTERVIEW PLACEHOLDER */}
-      <section className="py-24 px-6 md:px-16 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="font-mono text-xs uppercase tracking-widest text-black/40 mb-6">
-            Long-form Interview
+      {/* LONG-FORM INTERVIEW */}
+      {article ? (
+        <ArticleReader article={article} practitionerName={practitioner.name} />
+      ) : (
+        <section className="py-24 px-6 md:px-16 bg-white">
+          <div className="max-w-4xl mx-auto">
+            <div className="font-mono text-xs uppercase tracking-widest text-black/40 mb-6">
+              Long-form Interview
+            </div>
+            <div className="bg-[#E6E6E1] p-12 md:p-16 border-2 border-black/10 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">
+                Full Interview Coming Soon
+              </h2>
+              <p className="text-lg text-black/60 font-medium max-w-xl mx-auto mb-8">
+                The complete long-form interview with {practitioner.name} is being edited and will be published here.
+              </p>
+              <a
+                href={practitioner.linkedInUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-black font-bold hover:text-black/70 transition-colors"
+              >
+                Follow {practitioner.name.split(' ')[0]} on LinkedIn for updates
+                <ArrowUpRight size={18} />
+              </a>
+            </div>
           </div>
-          <div className="bg-[#E6E6E1] rounded-xl p-12 md:p-16 border-2 border-black/10 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">
-              Full Interview Coming Soon
-            </h2>
-            <p className="text-lg text-black/60 font-medium max-w-xl mx-auto mb-8">
-              The complete long-form interview with {practitioner.name} is being edited and will be published here.
-            </p>
-            <a
-              href={practitioner.linkedInUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-black font-bold hover:text-black/70 transition-colors"
-            >
-              Follow {practitioner.name.split(' ')[0]} on LinkedIn for updates
-              <ArrowUpRight size={18} />
-            </a>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* NAVIGATION */}
       <section className="py-16 px-6 md:px-16 bg-black text-[#E6E6E1]">
