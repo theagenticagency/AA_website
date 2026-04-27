@@ -71,83 +71,93 @@ const PractitionersPage = () => {
         </div>
       </section>
 
-      {/* INTRO */}
-      <section className="py-20 px-6 md:px-16 bg-[#E6E6E1]">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-xl md:text-2xl text-black/70 font-medium leading-relaxed mb-8">
-            It takes all kinds to figure out what works — and for whom, and in which settings. The Practitioners series features long-form interviews and LinkedIn reels with the people gathering experiences the rest of us can learn from and be inspired by.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <span className="px-4 py-2 bg-black text-[#E6E6E1] font-mono text-xs uppercase tracking-wider rounded">
-              Long-form interviews
-            </span>
-            <span className="px-4 py-2 bg-black text-[#E6E6E1] font-mono text-xs uppercase tracking-wider rounded">
-              LinkedIn reels
-            </span>
-            <span className="px-4 py-2 bg-black text-[#E6E6E1] font-mono text-xs uppercase tracking-wider rounded">
-              Practical insights
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* PRACTITIONERS GRID */}
-      <section id="practitioners-grid" className="py-24 px-6 md:px-16 bg-[#E6E6E1]">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            {practitioners.map((practitioner, index) => (
-              <Link
-                key={practitioner.slug}
-                to={`/practitioners/${practitioner.slug}`}
-                className="practitioner-card group block"
-              >
-                <div className="bg-white rounded-xl border-4 border-black overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-300">
-                  {/* Episode badge */}
-                  <div className="bg-black text-[#E6E6E1] px-6 py-3 flex items-center justify-between">
-                    <span className="font-mono text-xs uppercase tracking-widest">
-                      Episode {String(practitioner.episode).padStart(2, '0')}
-                    </span>
-                    <ArrowUpRight size={18} className="opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-8">
-                    <div className="font-mono text-xs uppercase tracking-wider text-black/40 mb-2">
-                      {practitioner.organisation || practitioner.location}
-                    </div>
-                    <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-2 group-hover:text-black/80 transition-colors">
-                      {practitioner.name}
-                    </h2>
-                    <p className="text-sm text-black/60 font-medium mb-4">
-                      {practitioner.title}{practitioner.organisation ? `, ${practitioner.organisation}` : ''}
-                    </p>
-                    <p className="text-black/70 font-medium mb-6 leading-relaxed">
-                      {practitioner.tagline}
-                    </p>
-
-                    {/* Topics */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {practitioner.topics.slice(0, 3).map((topic, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 bg-black/5 text-black/60 text-xs font-medium rounded"
-                        >
-                          {topic}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Pull quote */}
-                    <div className="border-l-4 border-black pl-4">
-                      <p className="text-sm italic text-black/60">
-                        "{practitioner.pullQuote}"
-                      </p>
-                    </div>
-                  </div>
+      {/* FEATURED PRACTITIONER */}
+      {practitioners[0] && (
+        <section id="practitioners-grid" className="bg-[#E6E6E1]">
+          <Link
+            to={`/practitioners/${practitioners[0].slug}`}
+            className="practitioner-card group block"
+          >
+            <div className="grid lg:grid-cols-2 min-h-[70vh]">
+              {/* Quote side */}
+              <div className="bg-black text-[#E6E6E1] p-12 md:p-16 lg:p-24 flex flex-col justify-center">
+                <div className="max-w-xl">
+                  <p className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-12">
+                    "{practitioners[0].pullQuote}"
+                  </p>
+                  <div className="w-16 h-px bg-[#E6E6E1]/30 mb-8"></div>
+                  <p className="text-xl md:text-2xl font-medium mb-2 group-hover:text-white transition-colors">
+                    {practitioners[0].name}
+                  </p>
+                  <p className="text-[#E6E6E1]/50">
+                    {practitioners[0].title}{practitioners[0].organisation ? `, ${practitioners[0].organisation}` : ''}
+                  </p>
                 </div>
-              </Link>
-            ))}
-          </div>
+              </div>
+
+              {/* Teaser side */}
+              <div className="bg-[#F5F5F0] p-12 md:p-16 lg:p-24 flex flex-col justify-center">
+                <div className="max-w-lg">
+                  <span className="font-mono text-xs uppercase tracking-widest text-black/30 mb-6 block">
+                    Episode {String(practitioners[0].episode).padStart(2, '0')}
+                  </span>
+                  <p className="text-xl md:text-2xl text-black/70 font-medium leading-relaxed mb-8">
+                    {practitioners[0].interviewTeaser}
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-black font-medium group-hover:gap-3 transition-all">
+                    Read interview <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </section>
+      )}
+
+      {/* REMAINING PRACTITIONERS */}
+      <section className="bg-[#E6E6E1] py-24">
+        <div className="max-w-6xl mx-auto px-6 md:px-16">
+          {practitioners.slice(1).map((practitioner, index) => (
+            <Link
+              key={practitioner.slug}
+              to={`/practitioners/${practitioner.slug}`}
+              className="practitioner-card group block border-t border-black/10 py-16 first:border-t-0 first:pt-0"
+            >
+              <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
+                {/* Episode number */}
+                <div className="md:col-span-1">
+                  <span className="font-mono text-sm text-black/30">
+                    {String(practitioner.episode).padStart(2, '0')}
+                  </span>
+                </div>
+
+                {/* Name and title */}
+                <div className="md:col-span-4">
+                  <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-2 group-hover:text-black/60 transition-colors">
+                    {practitioner.name}
+                  </h2>
+                  <p className="text-black/50">
+                    {practitioner.title}{practitioner.organisation ? `, ${practitioner.organisation}` : ''}
+                  </p>
+                </div>
+
+                {/* Pull quote */}
+                <div className="md:col-span-6">
+                  <p className="text-xl text-black/70 font-light leading-relaxed mb-4">
+                    "{practitioner.pullQuote}"
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-sm text-black/50 group-hover:text-black group-hover:gap-3 transition-all">
+                    Read interview <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </span>
+                </div>
+
+                {/* Arrow */}
+                <div className="md:col-span-1 hidden md:flex justify-end">
+                  <ArrowUpRight size={20} className="text-black/20 group-hover:text-black group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
