@@ -157,6 +157,13 @@ const PractitionerPage = () => {
   const prevPractitioner = currentIndex > 0 ? practitioners[currentIndex - 1] : null;
   const nextPractitioner = currentIndex < practitioners.length - 1 ? practitioners[currentIndex + 1] : null;
 
+  const scrollToInterview = () => {
+    const section = document.getElementById('interview-section');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div ref={pageRef}>
       <PageMeta
@@ -199,32 +206,55 @@ const PractitionerPage = () => {
             {practitioner.title}{practitioner.organisation ? `, ${practitioner.organisation}` : ''}
           </p>
 
-          <p className="fade-in text-lg text-[#E6E6E1]/70 font-medium max-w-2xl">
-            {practitioner.pedigree}
-          </p>
-        </div>
-      </section>
-
-      {/* INTERVIEW TEASER */}
-      <section className="py-16 px-6 md:px-16 bg-[#E6E6E1]">
-        <div className="max-w-4xl mx-auto">
-          <div className="fade-in bg-white rounded-xl p-8 md:p-12 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <div className="font-mono text-xs uppercase tracking-widest text-black/40 mb-4">
-              In this interview
-            </div>
-            <p className="text-xl md:text-2xl text-black/80 font-medium leading-relaxed">
-              {practitioner.interviewTeaser}
+          <div className="fade-in">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#E6E6E1]/30 block mb-2">
+              Current and former employers · Education
+            </span>
+            <p className="text-lg text-[#E6E6E1]/70 font-medium max-w-2xl">
+              {practitioner.pedigree}
             </p>
           </div>
         </div>
       </section>
+
+      {/* LONG-FORM INTERVIEW — value up front */}
+      <div id="interview-section">
+        {article ? (
+          <ArticleReader article={article} practitionerName={practitioner.name} />
+        ) : (
+          <section className="py-24 px-6 md:px-16 bg-white">
+            <div className="max-w-4xl mx-auto">
+              <div className="font-mono text-xs uppercase tracking-widest text-black/40 mb-6">
+                Long-form Interview
+              </div>
+              <div className="bg-[#E6E6E1] p-12 md:p-16 border-2 border-black/10 text-center">
+                <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">
+                  Full Interview Coming Soon
+                </h2>
+                <p className="text-lg text-black/60 font-medium max-w-xl mx-auto mb-8">
+                  The complete long-form interview with {practitioner.name} is being edited and will be published here.
+                </p>
+                <a
+                  href={practitioner.linkedInUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-black font-bold hover:text-black/70 transition-colors"
+                >
+                  Follow {practitioner.name.split(' ')[0]} on LinkedIn for updates
+                  <ArrowUpRight size={18} />
+                </a>
+              </div>
+            </div>
+          </section>
+        )}
+      </div>
 
       {/* VISUAL ESSAY */}
       {practitioner.carouselUrl && (
         <VisualEssaySection practitioner={practitioner} />
       )}
 
-      {/* BIO & CREDENTIALS */}
+      {/* ABOUT */}
       <section id="bio-section" className="py-24 px-6 md:px-16 bg-[#E6E6E1]">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12">
@@ -294,31 +324,24 @@ const PractitionerPage = () => {
         </div>
       </section>
 
-      {/* LONG-FORM INTERVIEW */}
-      {article ? (
-        <ArticleReader article={article} practitionerName={practitioner.name} />
-      ) : (
-        <section className="py-24 px-6 md:px-16 bg-white">
+      {/* IN THIS INTERVIEW — for those who scrolled too far */}
+      {article && (
+        <section className="py-16 px-6 md:px-16 bg-white">
           <div className="max-w-4xl mx-auto">
-            <div className="font-mono text-xs uppercase tracking-widest text-black/40 mb-6">
-              Long-form Interview
-            </div>
-            <div className="bg-[#E6E6E1] p-12 md:p-16 border-2 border-black/10 text-center">
-              <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">
-                Full Interview Coming Soon
-              </h2>
-              <p className="text-lg text-black/60 font-medium max-w-xl mx-auto mb-8">
-                The complete long-form interview with {practitioner.name} is being edited and will be published here.
+            <div className="bg-[#E6E6E1] p-8 md:p-12 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <div className="font-mono text-xs uppercase tracking-widest text-black/40 mb-4">
+                In this interview
+              </div>
+              <p className="text-xl md:text-2xl text-black/80 font-medium leading-relaxed mb-8">
+                {practitioner.interviewTeaser}
               </p>
-              <a
-                href={practitioner.linkedInUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-black font-bold hover:text-black/70 transition-colors"
+              <button
+                onClick={scrollToInterview}
+                className="inline-flex items-center gap-2 bg-black text-[#E6E6E1] px-6 py-3 font-bold uppercase tracking-wider hover:bg-black/80 transition-colors"
               >
-                Follow {practitioner.name.split(' ')[0]} on LinkedIn for updates
+                Read the interview
                 <ArrowUpRight size={18} />
-              </a>
+              </button>
             </div>
           </div>
         </section>
