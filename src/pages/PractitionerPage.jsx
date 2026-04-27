@@ -1,9 +1,120 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { gsap } from 'gsap';
-import { ArrowLeft, ArrowUpRight, Linkedin } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Linkedin, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import { PageMeta, BreadcrumbSchema } from '../components/seo';
 import { getPractitionerBySlug, practitioners } from '../data/practitioners';
+
+const TOTAL_SLIDES = 10;
+
+const VisualEssaySection = ({ practitioner }) => {
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const iframeRef = useRef(null);
+
+  const goToSlide = (slide) => {
+    const newSlide = Math.max(1, Math.min(TOTAL_SLIDES, slide));
+    setCurrentSlide(newSlide);
+  };
+
+  const scrollToContent = () => {
+    const section = document.getElementById('bio-section');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section className="relative min-h-screen bg-black text-[#E6E6E1]">
+      <div className="grid lg:grid-cols-5 min-h-screen">
+        {/* PDF Viewer - takes 3 columns */}
+        <div className="lg:col-span-3 relative flex flex-col">
+          <div className="flex-1 relative bg-[#0a0a0a]">
+            <iframe
+              ref={iframeRef}
+              src={`${practitioner.carouselUrl}#page=${currentSlide}&view=Fit&toolbar=0&navpanes=0&scrollbar=0`}
+              className="w-full h-full absolute inset-0"
+              title={`${practitioner.name} Visual Essay - Slide ${currentSlide}`}
+              key={currentSlide}
+            />
+          </div>
+
+          {/* Navigation controls */}
+          <div className="bg-[#0a0a0a] border-t border-white/5 px-6 py-4">
+            <div className="flex items-center justify-between max-w-lg mx-auto">
+              {/* Previous */}
+              <button
+                onClick={() => goToSlide(currentSlide - 1)}
+                disabled={currentSlide === 1}
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium disabled:opacity-20 hover:text-white transition-colors disabled:cursor-not-allowed"
+              >
+                <ChevronLeft size={18} />
+                <span className="hidden sm:inline">Previous</span>
+              </button>
+
+              {/* Slide indicators */}
+              <div className="flex items-center gap-1.5">
+                {Array.from({ length: TOTAL_SLIDES }, (_, i) => i + 1).map((slide) => (
+                  <button
+                    key={slide}
+                    onClick={() => goToSlide(slide)}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      slide === currentSlide
+                        ? 'bg-white w-6'
+                        : 'bg-white/20 hover:bg-white/40'
+                    }`}
+                    aria-label={`Go to slide ${slide}`}
+                  />
+                ))}
+              </div>
+
+              {/* Next */}
+              <button
+                onClick={() => goToSlide(currentSlide + 1)}
+                disabled={currentSlide === TOTAL_SLIDES}
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium disabled:opacity-20 hover:text-white transition-colors disabled:cursor-not-allowed"
+              >
+                <span className="hidden sm:inline">Next</span>
+                <ChevronRight size={18} />
+              </button>
+            </div>
+
+            {/* Slide counter */}
+            <div className="text-center mt-3">
+              <span className="font-mono text-xs text-white/30">
+                {String(currentSlide).padStart(2, '0')} / {TOTAL_SLIDES}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Editorial sidebar - takes 2 columns */}
+        <div className="lg:col-span-2 p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-black">
+          <div className="max-w-md">
+            <div className="w-12 h-px bg-[#E6E6E1]/30 mb-8"></div>
+            <p className="text-2xl md:text-3xl font-light leading-relaxed text-[#E6E6E1]/90 mb-8">
+              "{practitioner.pullQuote}"
+            </p>
+
+            <div className="pt-6 border-t border-[#E6E6E1]/10">
+              <p className="text-sm text-[#E6E6E1]/50 leading-relaxed">
+                {practitioner.interviewTeaser}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <button
+        onClick={scrollToContent}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#E6E6E1]/40 hover:text-[#E6E6E1]/70 transition-colors group"
+      >
+        <span className="text-xs font-mono uppercase tracking-widest">Continue</span>
+        <ChevronDown size={20} className="animate-bounce" />
+      </button>
+    </section>
+  );
+};
 
 const PractitionerPage = () => {
   const { slug } = useParams();
@@ -96,53 +207,11 @@ const PractitionerPage = () => {
 
       {/* VISUAL ESSAY */}
       {practitioner.carouselUrl && (
-        <section className="py-24 px-6 md:px-16 bg-black text-[#E6E6E1]">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
-              {/* Embedded PDF - takes 3 columns */}
-              <div className="lg:col-span-3">
-                <div className="aspect-[4/5] bg-[#0a0a0a] rounded-sm overflow-hidden shadow-2xl">
-                  <iframe
-                    src={`${practitioner.carouselUrl}#view=FitH&toolbar=0&navpanes=0`}
-                    className="w-full h-full"
-                    title={`${practitioner.name} Visual Essay`}
-                  />
-                </div>
-              </div>
-
-              {/* Editorial sidebar - takes 2 columns */}
-              <div className="lg:col-span-2 lg:sticky lg:top-24">
-                <div className="space-y-8">
-                  <div>
-                    <div className="w-12 h-px bg-[#E6E6E1]/30 mb-8"></div>
-                    <p className="text-2xl md:text-3xl font-light leading-relaxed text-[#E6E6E1]/90">
-                      "{practitioner.pullQuote}"
-                    </p>
-                  </div>
-
-                  <div className="pt-6 border-t border-[#E6E6E1]/10">
-                    <p className="text-sm text-[#E6E6E1]/50 leading-relaxed mb-6">
-                      {practitioner.interviewTeaser}
-                    </p>
-                    <a
-                      href={practitioner.carouselUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-[#E6E6E1]/70 hover:text-[#E6E6E1] transition-colors"
-                    >
-                      Open visual essay
-                      <ArrowUpRight size={14} />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <VisualEssaySection practitioner={practitioner} />
       )}
 
       {/* BIO & CREDENTIALS */}
-      <section className="py-24 px-6 md:px-16 bg-[#E6E6E1]">
+      <section id="bio-section" className="py-24 px-6 md:px-16 bg-[#E6E6E1]">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12">
             {/* Bio */}
