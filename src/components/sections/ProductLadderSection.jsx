@@ -98,7 +98,7 @@ const ProductLadderSection = ({ currentProduct = null, variant = 'full' }) => {
                 <React.Fragment key={product.id}>
                   <Link
                     to={product.to}
-                    className={`flex flex-col items-center text-center p-4 rounded-xl transition-all ${
+                    className={`flex flex-col items-center text-center p-4 transition-all ${
                       isCurrent
                         ? 'bg-black text-[#E6E6E1] shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)]'
                         : 'hover:bg-black/5'
@@ -169,7 +169,7 @@ const ProductLadderSection = ({ currentProduct = null, variant = 'full' }) => {
             <React.Fragment key={product.id}>
               <Link
                 to={product.to}
-                className="product-ladder-card group bg-white rounded-xl p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                className="product-ladder-card group bg-white p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-300 flex flex-col"
               >
                 <div className="font-mono text-xs tracking-wider uppercase text-black/50 mb-2">
                   {product.duration}
