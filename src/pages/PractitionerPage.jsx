@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { gsap } from 'gsap';
-import { ArrowLeft, ArrowUpRight, Linkedin, Play } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Linkedin } from 'lucide-react';
 import { PageMeta, BreadcrumbSchema } from '../components/seo';
 import { getPractitionerBySlug, practitioners } from '../data/practitioners';
 
@@ -94,135 +94,52 @@ const PractitionerPage = () => {
         </div>
       </section>
 
-      {/* LINKEDIN CONTENT */}
-      <section className="py-16 px-6 md:px-16 bg-black text-[#E6E6E1]">
-        <div className="max-w-5xl mx-auto">
-          <div className="font-mono text-xs uppercase tracking-widest text-[#E6E6E1]/50 mb-8">
-            LinkedIn Content
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Carousel Preview */}
-            <div className="bg-[#111] rounded-xl border-2 border-white/10 overflow-hidden">
-              <div className="bg-white/5 px-4 py-2 flex items-center justify-between">
-                <span className="font-mono text-xs uppercase tracking-wider text-[#E6E6E1]/40">Carousel</span>
-                <span className="font-mono text-xs text-[#E6E6E1]/30">10 slides</span>
-              </div>
-
-              {practitioner.carouselUrl ? (
-                /* Embedded PDF carousel */
-                <div className="aspect-square bg-[#0a0a0a] relative">
+      {/* VISUAL ESSAY */}
+      {practitioner.carouselUrl && (
+        <section className="py-24 px-6 md:px-16 bg-black text-[#E6E6E1]">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+              {/* Embedded PDF - takes 3 columns */}
+              <div className="lg:col-span-3">
+                <div className="aspect-[4/5] bg-[#0a0a0a] rounded-sm overflow-hidden shadow-2xl">
                   <iframe
                     src={`${practitioner.carouselUrl}#view=FitH&toolbar=0&navpanes=0`}
                     className="w-full h-full"
-                    title={`${practitioner.name} Carousel`}
+                    title={`${practitioner.name} Visual Essay`}
                   />
                 </div>
-              ) : (
-                /* Mock carousel slide */
-                <div className="aspect-square bg-[#0a0a0a] p-8 flex flex-col justify-between">
-                  <div className="font-mono text-xs uppercase tracking-widest text-[#E6E6E1]/30">
-                    01/10 — Cover
-                  </div>
+              </div>
+
+              {/* Editorial sidebar - takes 2 columns */}
+              <div className="lg:col-span-2 lg:sticky lg:top-24">
+                <div className="space-y-8">
                   <div>
-                    <div className="w-12 h-0.5 bg-[#E6E6E1]/30 mb-6"></div>
-                    <p className="text-2xl font-bold leading-tight mb-6">
-                      "{practitioner.pullQuote.split('.')[0]}."
+                    <div className="w-12 h-px bg-[#E6E6E1]/30 mb-8"></div>
+                    <p className="text-2xl md:text-3xl font-light leading-relaxed text-[#E6E6E1]/90">
+                      "{practitioner.pullQuote}"
                     </p>
-                    <div>
-                      <p className="font-bold">{practitioner.name}</p>
-                      <p className="text-sm text-[#E6E6E1]/50">
-                        {practitioner.title}{practitioner.organisation ? `, ${practitioner.organisation}` : ''}
-                      </p>
-                    </div>
                   </div>
-                  <div className="font-mono text-xs uppercase tracking-widest text-[#E6E6E1]/20">
-                    Agentic Agency
-                  </div>
-                </div>
-              )}
 
-              <div className="p-4 border-t border-white/5">
-                {practitioner.carouselUrl ? (
-                  <a
-                    href={practitioner.carouselUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 text-sm font-medium text-[#E6E6E1]/70 hover:text-[#E6E6E1] transition-colors"
-                  >
-                    View full carousel
-                    <ArrowUpRight size={14} />
-                  </a>
-                ) : (
-                  <p className="text-center text-sm text-[#E6E6E1]/30">
-                    Carousel in production
-                  </p>
-                )}
-              </div>
-            </div>
-
-            {/* Short Post Preview */}
-            <div className="bg-[#111] rounded-xl border-2 border-white/10 overflow-hidden">
-              <div className="bg-white/5 px-4 py-2 flex items-center justify-between">
-                <span className="font-mono text-xs uppercase tracking-wider text-[#E6E6E1]/40">Short Post</span>
-                <span className="font-mono text-xs text-[#E6E6E1]/30">Statement + Attribution</span>
-              </div>
-
-              {/* Mock LinkedIn post */}
-              <div className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                    <span className="font-mono text-xs font-bold">AA</span>
-                  </div>
-                  <div>
-                    <p className="font-bold text-sm">Agentic Agency</p>
-                    <p className="text-xs text-[#E6E6E1]/40">Practitioner Series</p>
+                  <div className="pt-6 border-t border-[#E6E6E1]/10">
+                    <p className="text-sm text-[#E6E6E1]/50 leading-relaxed mb-6">
+                      {practitioner.interviewTeaser}
+                    </p>
+                    <a
+                      href={practitioner.carouselUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-[#E6E6E1]/70 hover:text-[#E6E6E1] transition-colors"
+                    >
+                      Open visual essay
+                      <ArrowUpRight size={14} />
+                    </a>
                   </div>
                 </div>
-
-                <div className="bg-[#0a0a0a] rounded-lg p-6 mb-4">
-                  <div className="font-mono text-xs uppercase tracking-widest text-[#E6E6E1]/30 mb-4">
-                    Practitioner Series
-                  </div>
-                  <p className="text-lg font-bold mb-4">
-                    "{practitioner.pullQuote}"
-                  </p>
-                  <div className="w-8 h-0.5 bg-[#E6E6E1]/20 mb-4"></div>
-                  <p className="text-sm text-[#E6E6E1]/60">
-                    {practitioner.name}
-                  </p>
-                  <p className="text-xs text-[#E6E6E1]/40">
-                    {practitioner.title}{practitioner.organisation ? ` · ${practitioner.organisation}` : ''}
-                  </p>
-                </div>
-
-                <p className="text-sm text-[#E6E6E1]/50 leading-relaxed">
-                  {practitioner.interviewTeaser.split('.')[0]}.
-                </p>
-                <p className="text-sm text-[#E6E6E1]/30 mt-2">
-                  Full practitioner interview below.
-                </p>
-                <p className="text-xs text-[#0A66C2] mt-3">
-                  #AgenticAI #PractitionerSeries #Engineering
-                </p>
-              </div>
-
-              <div className="p-4 border-t border-white/5">
-                <a
-                  href={practitioner.linkedInUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 text-sm font-medium text-[#E6E6E1]/70 hover:text-[#E6E6E1] transition-colors"
-                >
-                  <Linkedin size={16} />
-                  Follow for updates
-                  <ArrowUpRight size={14} />
-                </a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* BIO & CREDENTIALS */}
       <section className="py-24 px-6 md:px-16 bg-[#E6E6E1]">
