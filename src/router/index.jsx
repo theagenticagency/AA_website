@@ -10,6 +10,8 @@ const CatalystPage = React.lazy(() => import('../pages/CatalystPage'));
 const CorePage = React.lazy(() => import('../pages/CorePage'));
 const AboutPage = React.lazy(() => import('../pages/AboutPage'));
 const MethodPage = React.lazy(() => import('../pages/MethodPage'));
+const PractitionersPage = React.lazy(() => import('../pages/PractitionersPage'));
+const PractitionerPage = React.lazy(() => import('../pages/PractitionerPage'));
 const ProtectedDeck = React.lazy(() => import('../components/ProtectedDeck'));
 const ProtectedSTARK = React.lazy(() => import('../components/ProtectedSTARK'));
 const FlowSlides = React.lazy(() => import('../components/FlowSlides'));
@@ -99,6 +101,22 @@ const router = createBrowserRouter([
         element: (
           <React.Suspense fallback={<PageLoader />}>
             <MethodPage />
+          </React.Suspense>
+        ),
+      },
+      {
+        path: 'practitioners',
+        element: (
+          <React.Suspense fallback={<PageLoader />}>
+            <PractitionersPage />
+          </React.Suspense>
+        ),
+      },
+      {
+        path: 'practitioners/:slug',
+        element: (
+          <React.Suspense fallback={<PageLoader />}>
+            <PractitionerPage />
           </React.Suspense>
         ),
       },

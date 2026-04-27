@@ -24,6 +24,7 @@ const FloatingNav = () => {
     { to: '/the-spark', label: 'The Spark' },
     { to: '/the-catalyst', label: 'The Catalyst' },
     { to: '/the-core', label: 'The Core' },
+    { to: '/practitioners', label: 'Practitioners' },
     { to: '/about', label: 'About' },
     { to: '/method', label: 'Method' },
   ];
@@ -43,6 +44,8 @@ const FloatingNav = () => {
         return { label: 'Get in touch', product: 'general' };
       case '/method':
         return { label: 'Get started', product: 'spark' };
+      case '/practitioners':
+        return { label: 'Get in touch', product: 'general' };
       default:
         return { label: 'Get started', product: 'spark' };
     }
