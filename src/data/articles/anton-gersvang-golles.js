@@ -175,7 +175,7 @@ The Wednesday-recorder anecdote is also a tell. Anton recorded our conversation 
 
 The deeper claim of Anton's career is that the right people for the next decade of AI work are the hybrids — the physicists who learned to ship, the game designers who learned to write evals, the psychologists who learned to draw a system architecture diagram.
 
-Next December 24th, the cover image of *Die Hard* on TV2 will be picked, almost certainly, by software an Anton-shaped person built. Same sweaty Bruce Willis. Wrong, probably, in fewer than one in ten thousand cases. Nobody watching will think about who decided. That is the trick. That is always the trick. **Compression, when it works, is invisible.**`
+Next December 24th, the cover image of *Die Hard* on TV2 will be picked, almost certainly, by software an Anton-shaped person built. Same sweaty Bruce Willis. Nobody watching will think about who decided. That is the trick. That is always the trick. **Compression, when it works, is invisible.**`
     }
   ],
   endnote: null,
