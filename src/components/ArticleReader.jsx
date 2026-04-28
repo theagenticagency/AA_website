@@ -67,7 +67,7 @@ const ArticleImage = ({ image, mode }) => {
   switch (mode || image.mode) {
     case 'full-bleed':
       return (
-        <figure className="my-12 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
+        <figure className="my-12 -mx-6 md:-mx-8 lg:-mx-16">
           <div className="relative bg-black">
             <img
               src={image.src}
@@ -76,7 +76,7 @@ const ArticleImage = ({ image, mode }) => {
             />
           </div>
           {image.caption && (
-            <figcaption className="mt-3 px-6 md:px-16 font-mono text-[11px] uppercase tracking-[0.08em] text-[#5A5A55]">
+            <figcaption className="mt-3 px-6 md:px-8 lg:px-16 font-mono text-[11px] uppercase tracking-[0.08em] text-[#5A5A55]">
               {image.caption}
             </figcaption>
           )}
@@ -161,7 +161,7 @@ const SectionBreak = () => {
 // Closer image with fade
 const CloserImage = ({ image }) => {
   return (
-    <figure className="relative my-16 left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
+    <figure className="relative my-16 -mx-6 md:-mx-8 lg:-mx-16">
       <div className="relative">
         <img
           src={image.src}
@@ -172,7 +172,7 @@ const CloserImage = ({ image }) => {
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#FAFAF7] to-transparent" />
       </div>
       {image.caption && (
-        <figcaption className="absolute bottom-4 left-6 md:left-16 font-mono text-[11px] uppercase tracking-[0.08em] text-white/80">
+        <figcaption className="absolute bottom-4 left-6 md:left-8 lg:left-16 font-mono text-[11px] uppercase tracking-[0.08em] text-white/80">
           {image.caption}
         </figcaption>
       )}
