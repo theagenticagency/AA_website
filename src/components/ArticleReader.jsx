@@ -60,6 +60,118 @@ const formatInline = (text) => {
   return parts;
 };
 
+// Image component for different placement modes
+const ArticleImage = ({ image, mode }) => {
+  if (!image) return null;
+
+  switch (mode || image.mode) {
+    case 'full-bleed':
+      return (
+        <figure className="my-12 -mx-6 md:-mx-8 lg:-mx-16 xl:-mx-32">
+          <div className="relative bg-black">
+            <img
+              src={image.src}
+              alt={image.caption || ''}
+              className="w-full h-auto"
+            />
+          </div>
+          {image.caption && (
+            <figcaption className="mt-3 px-6 md:px-8 lg:px-16 xl:px-32 font-mono text-[11px] uppercase tracking-[0.08em] text-[#5A5A55]">
+              {image.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+
+    case 'inset-left':
+      return (
+        <figure className="float-left w-[45%] mr-6 mb-4 mt-2 border-r border-[#1A1A1A]">
+          <img
+            src={image.src}
+            alt={image.caption || ''}
+            className="w-full h-auto pr-4"
+          />
+          {image.caption && (
+            <figcaption className="mt-2 pr-4 font-mono text-[11px] uppercase tracking-[0.08em] text-[#5A5A55]">
+              {image.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+
+    case 'inset-right':
+      return (
+        <figure className="float-right w-[45%] ml-6 mb-4 mt-2 border-l border-[#1A1A1A]">
+          <img
+            src={image.src}
+            alt={image.caption || ''}
+            className="w-full h-auto pl-4"
+          />
+          {image.caption && (
+            <figcaption className="mt-2 pl-4 font-mono text-[11px] uppercase tracking-[0.08em] text-[#5A5A55]">
+              {image.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+
+    default:
+      return null;
+  }
+};
+
+// Pullquote with background image
+const PullquotePanel = ({ text, backgroundImage }) => {
+  return (
+    <div className="relative my-16 -mx-6 md:-mx-8 lg:-mx-16 xl:-mx-32 min-h-[400px] flex items-center justify-center">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      />
+      <div className="absolute inset-0 bg-black/30" />
+      <blockquote className="relative z-10 text-white text-center px-8 max-w-[32ch] mx-auto">
+        <p className="font-['Space_Grotesk'] font-normal italic text-[44px] md:text-[56px] leading-tight">
+          {text}
+        </p>
+      </blockquote>
+    </div>
+  );
+};
+
+// Section break texture
+const SectionBreak = () => {
+  return (
+    <div
+      className="my-16 -mx-6 md:-mx-8 lg:-mx-16 xl:-mx-32 h-[120px] bg-black"
+      style={{
+        backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.15'/></svg>")`
+      }}
+    />
+  );
+};
+
+// Closer image with fade
+const CloserImage = ({ image }) => {
+  return (
+    <figure className="relative my-16 -mx-6 md:-mx-8 lg:-mx-16 xl:-mx-32">
+      <div className="relative">
+        <img
+          src={image.src}
+          alt={image.caption || ''}
+          className="w-full h-auto"
+        />
+        {/* Fade to page background at top */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#FAFAF7] to-transparent" />
+      </div>
+      {image.caption && (
+        <figcaption className="absolute bottom-4 left-6 md:left-8 lg:left-16 xl:left-32 font-mono text-[11px] uppercase tracking-[0.08em] text-white/80">
+          {image.caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+};
+
 const ArticleReader = ({ article, practitionerName }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [activeSection, setActiveSection] = useState(null);
@@ -100,48 +212,67 @@ const ArticleReader = ({ article, practitionerName }) => {
     }
   };
 
-  // Find relevant pull quote for a section
-  const getPullQuoteAfter = (sectionNumber) => {
-    const quote = article.pullQuotes.find(q => q.section === sectionNumber);
-    return quote;
-  };
-
   if (!isExpanded) {
-    // Collapsed state - compelling entry point
+    // Collapsed state - compelling entry point with hero image
     return (
-      <section className="py-24 px-6 md:px-16 bg-white">
-        <div className="max-w-4xl mx-auto">
+      <section className="bg-[#FAFAF7]">
+        {/* Hero image */}
+        {article.heroImage && (
+          <div className="relative w-full">
+            <img
+              src={article.heroImage}
+              alt=""
+              className="w-full h-[60vh] md:h-[70vh] object-cover"
+            />
+            <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#FAFAF7] to-transparent" />
+          </div>
+        )}
+
+        <div className="max-w-4xl mx-auto px-6 md:px-8 pb-24">
           <article className="relative">
             {/* Headline */}
             <header className="mb-12">
-              <p className="font-mono text-xs uppercase tracking-widest text-black/40 mb-4">
+              <p className="font-mono text-xs uppercase tracking-widest text-[#5A5A55] mb-4">
                 Long-form Interview
               </p>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-none mb-6">
+              <h2
+                className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-none mb-6"
+                style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif" }}
+              >
                 {article.headline}
               </h2>
-              <p className="text-xl md:text-2xl text-black/60 font-medium leading-relaxed max-w-3xl">
+              <p
+                className="text-xl md:text-2xl text-[#5A5A55] leading-relaxed max-w-3xl"
+                style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}
+              >
                 {article.dek}
               </p>
             </header>
 
             {/* Byline */}
-            <div className="flex items-center gap-4 mb-12 pb-8 border-b border-black/10">
+            <div className="flex items-center gap-4 mb-12 pb-8 border-b border-[#1A1A1A]/10">
               <div>
-                <p className="font-medium">By {article.byline}</p>
-                <p className="text-sm text-black/50">{article.reportedDate} · {article.readingTime}</p>
+                <p className="font-medium" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
+                  By {article.byline}
+                </p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#5A5A55]">
+                  {article.reportedDate} · {article.readingTime}
+                </p>
               </div>
             </div>
 
             {/* Opening paragraph with drop cap */}
-            <div className="prose prose-lg max-w-none mb-12">
-              <p className="first-letter:text-7xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:mt-1 text-xl text-black/80 leading-relaxed">
+            <div className="mb-12" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
+              <p className="text-lg text-[#0A0A0A] leading-[1.7] first-letter:text-[5em] first-letter:font-light first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:leading-[0.8]" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
+                <span style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontWeight: 300 }} className="first-letter-override">
+                  {article.sections[0].content.charAt(0)}
+                </span>
                 {article.sections[0].content.split('\n\n')[0]}
               </p>
             </div>
 
             {/* Fade overlay */}
-            <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#FAFAF7] to-transparent pointer-events-none" />
 
             {/* Expand button */}
             <div className="relative z-10 text-center pt-8">
@@ -152,7 +283,7 @@ const ArticleReader = ({ article, practitionerName }) => {
                 <span className="px-8 py-4 bg-black text-[#E6E6E1] font-bold uppercase tracking-wider hover:bg-black/80 transition-colors">
                   Continue Reading
                 </span>
-                <span className="flex items-center gap-2 text-sm text-black/50 group-hover:text-black transition-colors">
+                <span className="flex items-center gap-2 text-sm text-[#5A5A55] group-hover:text-black transition-colors">
                   {article.sections.length} chapters · {article.readingTime}
                   <ChevronDown size={16} className="animate-bounce" />
                 </span>
@@ -166,9 +297,9 @@ const ArticleReader = ({ article, practitionerName }) => {
 
   // Expanded state - full immersive reader
   return (
-    <section className="bg-white" ref={articleRef}>
+    <section className="bg-[#FAFAF7]" ref={articleRef}>
       {/* Reading progress bar */}
-      <div className="fixed top-0 left-0 right-0 h-1 bg-black/5 z-50">
+      <div className="fixed top-0 left-0 right-0 h-1 bg-[#D8D8D3] z-50">
         <div
           className="h-full bg-black transition-all duration-150"
           style={{ width: `${readingProgress}%` }}
@@ -195,72 +326,140 @@ const ArticleReader = ({ article, practitionerName }) => {
         </div>
       </nav>
 
+      {/* Hero image for expanded state */}
+      {article.heroImage && (
+        <div className="relative w-full">
+          <img
+            src={article.heroImage}
+            alt=""
+            className="w-full h-[50vh] md:h-[60vh] object-cover"
+          />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#FAFAF7] to-transparent" />
+        </div>
+      )}
+
       <div className="max-w-3xl mx-auto px-6 md:px-8 py-24">
         {/* Header */}
         <header className="mb-16">
-          <p className="font-mono text-xs uppercase tracking-widest text-black/40 mb-4">
+          <p className="font-mono text-xs uppercase tracking-widest text-[#5A5A55] mb-4">
             Long-form Interview
           </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-none mb-6">
+          <h1
+            className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-none mb-6"
+            style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif" }}
+          >
             {article.headline}
           </h1>
-          <p className="text-xl md:text-2xl text-black/60 font-medium leading-relaxed">
+          <p
+            className="text-xl md:text-2xl text-[#5A5A55] leading-relaxed"
+            style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}
+          >
             {article.dek}
           </p>
-          <div className="mt-8 pt-8 border-t border-black/10">
-            <p className="font-medium">By {article.byline}</p>
-            <p className="text-sm text-black/50">{article.reportedDate}</p>
+          <div className="mt-8 pt-8 border-t border-[#1A1A1A]/10">
+            <p className="font-medium" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
+              By {article.byline}
+            </p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#5A5A55]">
+              {article.reportedDate}
+            </p>
           </div>
         </header>
 
         {/* Article content */}
-        <div className="prose prose-lg prose-black max-w-none">
+        <div style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
           {article.sections.map((section, index) => {
-            const pullQuote = getPullQuoteAfter(section.number);
             const isFirst = index === 0;
+            const isLastSection = section.number === 'XII';
+            const prevSection = index > 0 ? article.sections[index - 1] : null;
 
             return (
               <React.Fragment key={section.number}>
+                {/* Section break after previous section */}
+                {prevSection?.sectionBreakAfter && <SectionBreak />}
+
+                {/* Closer image before section (typically §XII) */}
+                {section.closerImage && (
+                  <CloserImage image={section.closerImage} />
+                )}
+
                 <section
                   ref={el => sectionRefs.current[section.number] = el}
-                  className="mb-16 scroll-mt-24"
+                  className="mb-16 scroll-mt-24 overflow-hidden"
                 >
                   {/* Section header */}
                   <div className="flex items-baseline gap-4 mb-8 mt-16 first:mt-0">
-                    <span className="font-mono text-sm text-black/30">{section.number}</span>
-                    <h2 className="text-2xl font-bold uppercase tracking-tight">{section.title}</h2>
+                    <span className="font-mono text-sm text-[#5A5A55]">{section.number}</span>
+                    <h2
+                      className="text-2xl font-light uppercase tracking-tight"
+                      style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif" }}
+                    >
+                      {section.title}
+                    </h2>
                   </div>
 
-                  {/* Section content */}
-                  <div className={`text-lg text-black/80 leading-relaxed ${isFirst ? 'first-letter:text-6xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:mt-1' : ''}`}>
-                    {formatContent(section.content)}
+                  {/* Full-bleed image after header */}
+                  {section.image?.mode === 'full-bleed' && (
+                    <ArticleImage image={section.image} />
+                  )}
+
+                  {/* Inset images float within content */}
+                  {(section.image?.mode === 'inset-left' || section.image?.mode === 'inset-right') && (
+                    <ArticleImage image={section.image} />
+                  )}
+
+                  {/* Section content with drop cap on first section */}
+                  <div className={`text-lg text-[#0A0A0A] leading-[1.7] ${isFirst ? '' : ''}`}>
+                    {isFirst ? (
+                      <>
+                        <p className="mb-6 first-letter:text-[5em] first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:leading-[0.8] first-letter:font-light" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
+                          {formatInline(section.content.split('\n\n')[0])}
+                        </p>
+                        {section.content.split('\n\n').slice(1).map((para, i) => (
+                          <p key={i} className="mb-6">{formatInline(para)}</p>
+                        ))}
+                      </>
+                    ) : (
+                      formatContent(section.content)
+                    )}
                   </div>
+
+                  {/* Clear floats */}
+                  <div className="clear-both" />
                 </section>
 
-                {/* Pull quote between sections */}
-                {pullQuote && (
-                  <div className="my-16 py-12 border-y border-black/10">
-                    <p className="text-2xl md:text-3xl font-light text-center leading-relaxed text-black/80 max-w-2xl mx-auto">
-                      "{pullQuote.text}"
-                    </p>
-                  </div>
+                {/* Pullquote panel after section if specified */}
+                {section.pullquote && (
+                  <PullquotePanel
+                    text={section.pullquote.text}
+                    backgroundImage={section.pullquote.backgroundImage}
+                  />
                 )}
               </React.Fragment>
             );
           })}
         </div>
 
+        {/* Endnote */}
+        {article.endnote && (
+          <div className="mt-16 pt-8 border-t border-[#1A1A1A]/10">
+            <p className="text-sm text-[#5A5A55] italic leading-relaxed" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
+              {article.endnote}
+            </p>
+          </div>
+        )}
+
         {/* End mark */}
-        <div className="mt-24 pt-12 border-t border-black/10 text-center">
+        <div className="mt-24 pt-12 border-t border-[#1A1A1A]/10 text-center">
           <div className="inline-block w-4 h-4 bg-black" />
-          <p className="mt-6 text-sm text-black/40">
+          <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.08em] text-[#5A5A55]">
             Interview conducted April 2026
           </p>
         </div>
 
         {/* Newsletter signup */}
         <div className="mt-16 p-8 md:p-12 bg-black text-[#E6E6E1] text-center">
-          <p className="text-[#E6E6E1]/50 text-sm mb-4 italic">
+          <p className="text-[#E6E6E1]/50 text-sm mb-4 italic" style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}>
             You've made it this far. Might as well commit.
           </p>
           <a
