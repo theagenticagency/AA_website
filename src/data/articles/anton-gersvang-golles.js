@@ -178,7 +178,7 @@ The deeper claim of Anton's career is that the right people for the next decade 
 Next December 24th, the cover image of *Die Hard* on TV2 will be picked, almost certainly, by software an Anton-shaped person built. Same sweaty Bruce Willis. Wrong, probably, in fewer than one in ten thousand cases. Nobody watching will think about who decided. That is the trick. That is always the trick. **Compression, when it works, is invisible.**`
     }
   ],
-  endnote: "Quotes from a 70-minute Danish-language interview on 2026-04-17, transcribed with mlx-whisper large-v3 and verified against the audio. Anton's words are presented in English; original Danish is in the transcript file. Compute-gap figures cross-checked against Nvidia's published H100 SXM5 and RTX 4090 specifications.",
+  endnote: null,
   pullQuotes: [
     { text: "How hard is it to find a needle in a haystack? It depends a lot on how big the haystack is.", section: "I" },
     { text: "If the function is large enough, it could in principle learn anything.", section: "II" },
