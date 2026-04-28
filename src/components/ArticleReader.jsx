@@ -391,26 +391,27 @@ const ArticleReader = ({ article, practitionerName }) => {
                   <CloserImage image={section.closerImage} />
                 )}
 
-                <section
+                {/* Section header */}
+                <div
                   ref={el => sectionRefs.current[section.number] = el}
-                  className="mb-16 scroll-mt-24 overflow-hidden"
+                  className="flex items-baseline gap-4 mb-8 mt-16 first:mt-0 scroll-mt-24"
                 >
-                  {/* Section header */}
-                  <div className="flex items-baseline gap-4 mb-8 mt-16 first:mt-0">
-                    <span className="font-mono text-sm text-[#5A5A55]">{section.number}</span>
-                    <h2
-                      className="text-2xl font-light uppercase tracking-tight"
-                      style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif" }}
-                    >
-                      {section.title}
-                    </h2>
-                  </div>
+                  <span className="font-mono text-sm text-[#5A5A55]">{section.number}</span>
+                  <h2
+                    className="text-2xl font-light uppercase tracking-tight"
+                    style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif" }}
+                  >
+                    {section.title}
+                  </h2>
+                </div>
 
-                  {/* Full-bleed image after header */}
-                  {section.image?.mode === 'full-bleed' && (
-                    <ArticleImage image={section.image} />
-                  )}
+                {/* Full-bleed image after header - outside overflow container */}
+                {section.image?.mode === 'full-bleed' && (
+                  <ArticleImage image={section.image} />
+                )}
 
+                {/* Section content */}
+                <section className="mb-16 overflow-hidden">
                   {/* Inset images float within content */}
                   {(section.image?.mode === 'inset-left' || section.image?.mode === 'inset-right') && (
                     <ArticleImage image={section.image} />
