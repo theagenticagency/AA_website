@@ -218,11 +218,11 @@ const ArticleReader = ({ article, practitionerName }) => {
       <section className="bg-[#FAFAF7]">
         {/* Hero image */}
         {article.heroImage && (
-          <div className="relative w-full">
+          <div className="relative w-full pt-20">
             <img
               src={article.heroImage}
               alt=""
-              className="w-full h-[60vh] md:h-[70vh] object-cover"
+              className="w-full h-[60vh] md:h-[70vh] object-cover object-top"
             />
             <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#FAFAF7] to-transparent" />
           </div>
@@ -328,11 +328,11 @@ const ArticleReader = ({ article, practitionerName }) => {
 
       {/* Hero image for expanded state */}
       {article.heroImage && (
-        <div className="relative w-full">
+        <div className="relative w-full pt-20">
           <img
             src={article.heroImage}
             alt=""
-            className="w-full h-[50vh] md:h-[60vh] object-cover"
+            className="w-full h-[50vh] md:h-[60vh] object-cover object-top"
           />
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#FAFAF7] to-transparent" />
         </div>
