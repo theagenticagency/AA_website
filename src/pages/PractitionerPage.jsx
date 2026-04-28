@@ -195,7 +195,7 @@ const PractitionerPage = () => {
           </Link>
 
           <div className="fade-in font-mono text-xs uppercase tracking-widest text-[#E6E6E1]/50 mb-4">
-            Episode {String(practitioner.episode).padStart(2, '0')} · The Practitioners Series
+            Episode {String(practitioner.episode).padStart(2, '0')} · {practitioner.publishedDisplay} · The Practitioners Series
           </div>
 
           <h1 className="fade-in text-4xl md:text-6xl lg:text-7xl font-black uppercase leading-none tracking-tighter mb-4">

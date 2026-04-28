@@ -35,7 +35,8 @@ Now he leads Team _42 at Norlys, Denmark's largest energy company serving 1 mill
     ],
     pullQuote: "Do not stop due to imperfect conditions. Solve the problem.",
     interviewTeaser: "On the Seal Team model at Norlys, why every LLM wears mascara, and why the eureka moments have plateaued — the bottleneck isn't intelligence, it's context.",
-    publishedAt: "2024-04-15",
+    publishedAt: "2026-04-01",
+    publishedDisplay: "April 2026",
     episode: 1
   },
   {
@@ -65,7 +66,8 @@ His focus is on the human side of technical transformation: how teams adapt, wha
     ],
     pullQuote: "The question isn't whether AI will change how we build software. It's whether we'll be intentional about how we adapt.",
     interviewTeaser: "On leading engineering teams through AI transformation, maintaining quality at speed, and the cultural shifts that make or break adoption.",
-    publishedAt: "2024-04-22",
+    publishedAt: "2026-04-08",
+    publishedDisplay: "April 2026",
     episode: 2
   },
   {
@@ -96,7 +98,8 @@ She brings the perspective of someone who has shipped at massive scale, navigati
     ],
     pullQuote: "At enterprise scale, every architectural decision is a bet on the future. The skill is knowing which bets to make.",
     interviewTeaser: "On building platforms that serve millions, enterprise architecture decisions, and what it takes to ship at LEGO scale.",
-    publishedAt: "2024-04-29",
+    publishedAt: "2026-04-15",
+    publishedDisplay: "April 2026",
     episode: 3
   },
   {
@@ -129,7 +132,8 @@ Before Simply.TV, Anton was at Halfspace (acquired by Accenture), advising Nordi
     ],
     pullQuote: "Comprehension is compression. Compression is comprehension. The two are the same thing.",
     interviewTeaser: "On automating metadata editors, why 95% accuracy isn't good enough, the agent he named Dream, and why the next paradigm is computer use.",
-    publishedAt: "2026-04-28",
+    publishedAt: "2026-04-22",
+    publishedDisplay: "April 2026",
     episode: 4
   }
 ];

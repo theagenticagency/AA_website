@@ -99,7 +99,7 @@ const PractitionersPage = () => {
               <div className="bg-[#F5F5F0] p-12 md:p-16 lg:p-24 flex flex-col justify-center">
                 <div className="max-w-lg">
                   <span className="font-mono text-xs uppercase tracking-widest text-black/30 mb-6 block">
-                    Episode {String(practitioners[0].episode).padStart(2, '0')}
+                    Episode {String(practitioners[0].episode).padStart(2, '0')} · {practitioners[0].publishedDisplay}
                   </span>
                   <p className="text-xl md:text-2xl text-black/70 font-medium leading-relaxed mb-8">
                     {practitioners[0].interviewTeaser}
@@ -124,15 +124,15 @@ const PractitionersPage = () => {
               className="practitioner-card group block border-t border-black/10 py-16 first:border-t-0 first:pt-0"
             >
               <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
-                {/* Episode number */}
-                <div className="md:col-span-1">
+                {/* Episode number and date */}
+                <div className="md:col-span-2">
                   <span className="font-mono text-sm text-black/30">
-                    {String(practitioner.episode).padStart(2, '0')}
+                    {String(practitioner.episode).padStart(2, '0')} · {practitioner.publishedDisplay}
                   </span>
                 </div>
 
                 {/* Name and title */}
-                <div className="md:col-span-4">
+                <div className="md:col-span-3">
                   <h2 className="text-2xl md:text-3xl font-medium tracking-tight mb-2 group-hover:text-black/60 transition-colors">
                     {practitioner.name}
                   </h2>
