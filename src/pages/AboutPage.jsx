@@ -30,14 +30,14 @@ const AboutPage = () => {
       initials: "MvK",
       name: "Mandy van Kesteren",
       title: "Delivery",
-      pedigree: "Group SVP Digital Channels, The Adecco Group · IMD",
-      bio: "Mandy is a seasoned executive with a strong background in digital transformation, marketing, and IT. At The Adecco Group she led the global transformation of digital channels — including web, app, chatbot, and AI agents — enhancing candidate and client experiences across 60+ countries.",
+      pedigree: "Rabobank · Philips · The Adecco Group",
+      bio: "Mandy is a down to earth, authentic leader who thrives in fast-paced, complex environments where the status quo needs to be challenged and transformed into scalable, future-ready operations. She combines a sharp commercial mindset with a collaborative, empathetic leadership style. Her approach mixes curiosity, strategic thinking, problem solving and pragmatic implementation. She is known for getting things done. Mandy has been in significant senior roles in several industries like banking (Rabobank), healthcare (Philips) and HR services (The Adecco Group), leading digital transformations for customers & employees. Her keywords: respect, trust, integrity, honesty.",
       credentials: [
-        "Group SVP of Digital Channels and Web Services, The Adecco Group",
-        "Group SVP of Marketing Operations and Transformation",
-        "IT Leadership, IMD · BASc IT Project Management, Fontys University"
+        "Executive Leader in Digital Transformation & Customer Experience",
+        "Senior leadership roles at Rabobank, Philips, The Adecco Group",
+        "Digital transformation for customers & employees across industries"
       ],
-      quote: "The enterprises that win the next decade will be those that integrate agentic systems into their core operations today — not as experiments, but as production infrastructure."
+      quote: "My passion is to bring the unexpected together and to pick up what others don't dare to touch. I take the challenge and give others the confidence to do what they never thought would be possible."
     },
     {
       initials: "RC",
